@@ -171,16 +171,35 @@ hr.div { border: none; border-top: 1px solid var(--border); margin: 0; }
 .li { display: flex; align-items: center; gap: 7px; }
 .ls { width: 26px; height: 11px; border-radius: 2px; flex-shrink: 0; }
 
-/* ── COMPARISON CARDS ── */
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(272px, 1fr));
-  gap: 12px;
+/* ── COMPARISON CARDS (row layout) ── */
+.cards { display: flex; flex-direction: column; gap: 14px; }
+.ccard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
 }
-.ccard { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
-.ccard-hd { padding: 13px 14px 10px; border-bottom: 1px solid var(--border); }
-.ccard-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; margin-bottom: 4px; }
-.ccard-name { font-size: 14px; font-weight: 600; color: var(--fg); line-height: 1.3; text-wrap: balance; }
+.ccard-left {
+  width: 258px;
+  flex-shrink: 0;
+  padding: 14px 16px;
+  border-right: 1px solid var(--border);
+  background: var(--surface2);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.ccard-right {
+  flex: 1;
+  padding: 14px 16px;
+  display: flex;
+  gap: 18px;
+  min-width: 0;
+}
+.ccard-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
+.ccard-name { font-size: 13.5px; font-weight: 600; color: var(--fg); line-height: 1.3; text-wrap: balance; }
 .badge {
   font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em;
   padding: 2px 6px; border-radius: 3px; flex-shrink: 0; white-space: nowrap;
@@ -198,7 +217,7 @@ hr.div { border: none; border-top: 1px solid var(--border); margin: 0; }
 :root[data-theme="dark"] .b-w { background: rgba(127,29,29,.38); color: #FCA5A5; }
 
 .ccard-n { font-size: 11.5px; color: var(--fg3); font-variant-numeric: tabular-nums; }
-.scores { padding: 10px 14px; display: flex; flex-direction: column; gap: 7px; }
+.scores { display: flex; flex-direction: column; gap: 7px; }
 .srow { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
 .srow-lbl { font-size: 12px; color: var(--fg2); }
 .dots { display: flex; gap: 3px; }
@@ -208,30 +227,15 @@ hr.div { border: none; border-top: 1px solid var(--border); margin: 0; }
 }
 .d.f { background: currentColor; }
 
-.tbtn {
-  display: flex; align-items: center; gap: 6px;
-  width: 100%; background: none;
-  border: none; border-top: 1px solid var(--border);
-  padding: 9px 14px;
-  cursor: pointer;
-  font: 500 12px 'Inter', system-ui, sans-serif;
-  color: var(--fg3); text-align: left;
-  transition: background .1s;
-}
-.tbtn:hover { background: var(--surface2); color: var(--fg2); }
-.tbtn:focus-visible { outline: 2px solid var(--blue); outline-offset: -2px; }
-.arr { margin-left: auto; transition: transform .2s; font-size: 10px; }
-.ccard.open .arr { transform: rotate(180deg); }
-
-.detail { overflow: hidden; max-height: 0; transition: max-height .24s ease; }
-.ccard.open .detail { max-height: 380px; }
-.detail-in { padding: 10px 14px 14px; display: flex; flex-direction: column; gap: 9px; }
+.pc { flex: 1; min-width: 0; }
 .pc h4 {
-  margin: 0 0 4px;
+  margin: 0 0 6px;
   font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .055em;
   color: var(--fg3);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 4px;
 }
-.pc ul { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 3px; }
+.pc ul { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 5px; }
 .pc li { font-size: 12.5px; color: var(--fg2); line-height: 1.5; padding-left: 13px; position: relative; }
 .pc li::before {
   content: ''; position: absolute; left: 0; top: 7px;
@@ -241,16 +245,28 @@ hr.div { border: none; border-top: 1px solid var(--border); margin: 0; }
 .cons li::before { background: var(--hi-r); }
 
 /* ── DESIGN NOTES ── */
-.notes { display: grid; grid-template-columns: repeat(auto-fill, minmax(248px, 1fr)); gap: 12px; }
+.notes { display: flex; flex-direction: column; gap: 12px; }
 .note {
   background: var(--surface);
   border: 1px solid var(--border);
   border-left: 3px solid var(--blue);
   border-radius: 0 8px 8px 0;
-  padding: 14px 16px;
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  overflow: hidden;
 }
-.note h3 { margin: 0 0 5px; font-size: 13.5px; font-weight: 600; }
-.note p  { margin: 0; font-size: 13px; color: var(--fg2); line-height: 1.62; }
+.note h3 {
+  margin: 0;
+  font-size: 13.5px; font-weight: 600;
+  padding: 16px;
+  background: var(--surface2);
+  border-right: 1px solid var(--border);
+  line-height: 1.35;
+  align-self: stretch;
+  display: flex;
+  align-items: flex-start;
+}
+.note p  { margin: 0; font-size: 13px; color: var(--fg2); line-height: 1.62; padding: 16px; }
 
 /* ── REFERENCES ── */
 .ref-cats { display: flex; flex-direction: column; gap: 22px; }
@@ -297,10 +313,13 @@ footer {
   font-size: 11.5px; color: var(--fg3); text-align: center;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
   .hdr h1 { font-size: 17px; }
-  .cards { grid-template-columns: 1fr; }
-  .notes { grid-template-columns: 1fr; }
+  .ccard { flex-direction: column; }
+  .ccard-left { width: auto; border-right: none; border-bottom: 1px solid var(--border); }
+  .ccard-right { flex-direction: column; }
+  .note { grid-template-columns: 1fr; }
+  .note h3 { border-right: none; border-bottom: 1px solid var(--border); }
 }
 </style>
 
@@ -311,8 +330,8 @@ footer {
 
 <nav class="nav" id="top-nav">
   <a href="#timeline" class="active">Coverage Timeline</a>
-  <a href="#comparison">Comparison Groups</a>
   <a href="#approach">Design Approach</a>
+  <a href="#comparison">Comparison Groups</a>
   <a href="#refs">References</a>
 </nav>
 
@@ -339,14 +358,6 @@ footer {
 
   <hr class="div" style="margin-top:36px">
 
-  <section id="comparison">
-    <h2>Comparison Group Options</h2>
-    <p class="lead">Five candidate populations scored on five dimensions. Dots reflect relative suitability (green = strong, amber = moderate, red = weak). Expand each card for the specific pros and cons.</p>
-    <div class="cards" id="cards-grid"></div>
-  </section>
-
-  <hr class="div" style="margin-top:36px">
-
   <section id="approach">
     <h2>Dynamic Cohort Design Rationale</h2>
     <p class="lead">Key decisions from the October 28, 2026 call, with supporting evidence from the literature.</p>
@@ -368,6 +379,14 @@ footer {
         <p>Two validated claims-based approaches are available and closely related. Vivanti et al. 2025 used the Bynum algorithm (McCarthy / Grodstein 2022): ICD-10 codes F01.xx, F02.xx, F03.xx, G30.xx in Part A/B claims <em>plus</em> Part D dementia medications. Tobi's DREAM study (Desai et al. 2025) uses diagnosis codes only — 1 inpatient or 2 outpatient claims — with no Part D component. Both require a clean washout at cohort entry. The team protocol will specify which standard to apply; the choice should be aligned across the group, particularly with Tobi.</p>
       </div>
     </div>
+  </section>
+
+  <hr class="div" style="margin-top:36px">
+
+  <section id="comparison">
+    <h2>Comparison Group Options</h2>
+    <p class="lead">Five candidate populations scored on five dimensions. Dots reflect relative suitability (green = strong, amber = moderate, red = weak). Pros and cons are shown to the right of each row.</p>
+    <div class="cards" id="cards-grid"></div>
   </section>
 
   <hr class="div" style="margin-top:36px">
@@ -742,8 +761,6 @@ const COMPARISONS = [
   COMPARISONS.forEach((cmp, ci) => {
     const card = document.createElement('div');
     card.className = 'ccard';
-    const id = 'det-' + ci;
-
     const badgeHtml = cmp.badge
       ? `<span class="badge ${cmp.bcls}">${cmp.badge}</span>`
       : '';
@@ -756,30 +773,20 @@ const COMPARISONS = [
     const consHtml = cmp.cons.map(c => `<li>${c}</li>`).join('');
 
     card.innerHTML = `
-      <div class="ccard-hd">
-        <div class="ccard-row">
-          <span class="ccard-name">${cmp.name}</span>
-          ${badgeHtml}
+      <div class="ccard-left">
+        <div>
+          <div class="ccard-row">
+            <span class="ccard-name">${cmp.name}</span>
+            ${badgeHtml}
+          </div>
+          <div class="ccard-n">${cmp.n}</div>
         </div>
-        <div class="ccard-n">${cmp.n}</div>
+        <div class="scores">${scoresHtml}</div>
       </div>
-      <div class="scores">${scoresHtml}</div>
-      <button class="tbtn" aria-expanded="false" aria-controls="${id}">
-        View pros and cons
-        <span class="arr">&#9660;</span>
-      </button>
-      <div class="detail" id="${id}" role="region">
-        <div class="detail-in">
-          <div class="pc pros"><h4>Pros</h4><ul>${prosHtml}</ul></div>
-          <div class="pc cons"><h4>Cons</h4><ul>${consHtml}</ul></div>
-        </div>
+      <div class="ccard-right">
+        <div class="pc pros"><h4>Pros</h4><ul>${prosHtml}</ul></div>
+        <div class="pc cons"><h4>Cons</h4><ul>${consHtml}</ul></div>
       </div>`;
-
-    const btn = card.querySelector('.tbtn');
-    btn.addEventListener('click', () => {
-      const open = card.classList.toggle('open');
-      btn.setAttribute('aria-expanded', open);
-    });
 
     grid.appendChild(card);
   });
