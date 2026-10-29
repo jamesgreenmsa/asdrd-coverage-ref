@@ -152,9 +152,11 @@ hr.div { border: none; border-top: 1px solid var(--border); margin: 0; }
 .ghit.sel   { fill: rgba(46,85,151,.10); }
 
 .gpanel {
-  border-top: 1px solid var(--border);
+  border: 1px solid var(--border);
+  border-radius: 6px;
   background: var(--surface2);
   padding: 13px 18px;
+  margin-top: 10px;
   min-height: 50px;
   font-size: 13px;
   color: var(--fg2);
@@ -344,7 +346,6 @@ footer {
       <div class="gscroll">
         <svg id="gantt" viewBox="0 0 860 312" aria-label="ASD patient coverage timeline by data source and age"></svg>
       </div>
-      <div class="gpanel hint" id="gpanel">Click a row to see details about that patient archetype and its implications for the analysis</div>
     </div>
     <div class="legend">
       <span class="li"><span class="ls" style="background:var(--c-med)"></span>Medicaid (SSI / HCBS)</span>
@@ -354,6 +355,7 @@ footer {
       <span class="li"><span class="ls" style="background:var(--c-gap);opacity:.65"></span>Coverage gap</span>
       <span class="li"><span class="ls" style="background:var(--c-nor)"></span>Population registry</span>
     </div>
+    <div class="gpanel hint" id="gpanel">Click a row to see details about that patient archetype and its implications for the analysis</div>
   </section>
 
   <hr class="div" style="margin-top:36px">
