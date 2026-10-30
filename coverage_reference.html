@@ -122,7 +122,8 @@ body {
   padding-right: max(20px, env(safe-area-inset-right, 0px));
   padding-bottom: 52px;
 }
-section { padding-top: 36px; }
+section {
+  scroll-margin-top: 58px; padding-top: 36px; }
 section h2 { margin: 0 0 5px; font-size: 17px; font-weight: 700; text-wrap: balance; }
 .lead { margin: 0 0 18px; color: var(--fg2); font-size: 13.5px; max-width: 660px; }
 hr.div { border: none; border-top: 1px solid var(--border); margin: 0; }
@@ -325,6 +326,21 @@ footer {
 }
 
 /* ── OVERVIEW LANDING ── */
+.ov-title {
+  margin: 0 0 14px;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--fg);
+  letter-spacing: -.015em;
+}
+.ov-subtitle {
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--fg2);
+  letter-spacing: 0;
+}
+
 .ov-hero {
   display: flex;
   gap: 32px;
@@ -392,6 +408,28 @@ footer {
   .ov-tabs { grid-template-columns: 1fr; }
 }
 
+
+/* ── CITATION SYSTEM ── */
+.ref-num {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 20px; height: 20px; border-radius: 10px;
+  background: var(--blue); color: #fff;
+  font-size: 10px; font-weight: 700; line-height: 1;
+  padding: 0 4px;
+  margin-right: 7px; flex-shrink: 0;
+  vertical-align: middle;
+}
+.cref {
+  color: var(--blue);
+  text-decoration: none;
+  font-size: 0.78em;
+  vertical-align: super;
+  font-weight: 700;
+  line-height: 0;
+}
+.cref:hover { text-decoration: underline; }
+sup .cref + .cref { margin-left: 1px; }
+
 </style>
 
 <header class="hdr">
@@ -413,39 +451,44 @@ footer {
     <div class="ov-hero">
       <div class="ov-copy">
         <div class="ov-kicker">Draft Working Reference &middot; ASD and Alzheimer&rsquo;s / ADRD Risk Grant</div>
+        <h2 class="ov-title">ASD and Alzheimer&rsquo;s Disease / ADRD Risk<br><span class="ov-subtitle">Study Design Reference</span></h2>
         <p class="lead">This page supports analytic design discussions for a funded NIH study on Alzheimer&rsquo;s disease and ADRD risk in adults with autism spectrum disorder. The team is working through decisions about which data sources to use, how to define the study cohort, and which comparison group offers the best methodological fit. This reference summarizes those options, with supporting evidence from the literature, in one interactive place.</p>
         <p class="lead">It is intended for the analytic team and collaborators who are actively shaping the Medicare study design. Content reflects decisions and open questions as of late October 2026 and will be updated as the team aligns.</p>
         <p class="ov-note">This is a working draft. Please flag anything that does not match the team&rsquo;s current thinking.</p>
       </div>
       <div class="ov-preview">
-        <svg class="ov-mini" viewBox="0 0 260 138" aria-label="Preview of the coverage timeline chart">
-          <!-- dementia risk window shading -->
-          <rect x="156" y="4" width="98" height="104" rx="2" fill="var(--hi-r)" opacity="0.07"/>
+        <svg class="ov-mini" viewBox="0 0 260 160" aria-label="Preview of the coverage timeline chart">
+          <!-- chart title -->
+          <text x="8" y="13" font-family="system-ui,sans-serif" font-size="10" font-weight="700" fill="var(--fg)">Coverage Timeline</text>
+          <text x="8" y="25" font-family="system-ui,sans-serif" font-size="8.5" fill="var(--fg3)">Patient enrollment pathways · Age 0 to 80</text>
+
+          <!-- dementia risk window shading — stronger -->
+          <rect x="156" y="31" width="98" height="88" fill="var(--hi-r)" opacity="0.12"/>
+          <!-- risk window label — prominent -->
+          <text x="207" y="41" font-family="system-ui,sans-serif" font-size="9" font-weight="700" fill="var(--hi-r)" text-anchor="middle" opacity="0.9">Dementia</text>
+          <text x="207" y="52" font-family="system-ui,sans-serif" font-size="9" font-weight="700" fill="var(--hi-r)" text-anchor="middle" opacity="0.9">risk window</text>
+
           <!-- lane 1: Medicaid + Dual -->
-          <rect x="8"   y="12" width="62"  height="13" rx="2" fill="var(--c-med)"  opacity="0.88"/>
-          <rect x="70"  y="12" width="184" height="13" rx="2" fill="var(--c-dual)" opacity="0.88"/>
+          <rect x="8"   y="56" width="62"  height="14" rx="2" fill="var(--c-med)"  opacity="0.9"/>
+          <rect x="70"  y="56" width="184" height="14" rx="2" fill="var(--c-dual)" opacity="0.9"/>
           <!-- lane 2: Medicaid + Commercial + Gap + FFS -->
-          <rect x="8"   y="35" width="50"  height="13" rx="2" fill="var(--c-med)"  opacity="0.88"/>
-          <rect x="58"  y="35" width="79"  height="13" rx="2" fill="var(--c-com)"  opacity="0.88"/>
-          <rect x="137" y="35" width="19"  height="13" rx="2" fill="var(--c-gap)"  opacity="0.5"/>
-          <rect x="156" y="35" width="98"  height="13" rx="2" fill="var(--c-ffs)"  opacity="0.88"/>
+          <rect x="8"   y="78" width="50"  height="14" rx="2" fill="var(--c-med)"  opacity="0.9"/>
+          <rect x="58"  y="78" width="79"  height="14" rx="2" fill="var(--c-com)"  opacity="0.9"/>
+          <rect x="137" y="78" width="19"  height="14" rx="2" fill="var(--c-gap)"  opacity="0.5"/>
+          <rect x="156" y="78" width="98"  height="14" rx="2" fill="var(--c-ffs)"  opacity="0.9"/>
           <!-- lane 3: Commercial + FFS -->
-          <rect x="8"   y="58" width="148" height="13" rx="2" fill="var(--c-com)"  opacity="0.88"/>
-          <rect x="156" y="58" width="98"  height="13" rx="2" fill="var(--c-ffs)"  opacity="0.88"/>
+          <rect x="8"   y="100" width="148" height="14" rx="2" fill="var(--c-com)"  opacity="0.9"/>
+          <rect x="156" y="100" width="98"  height="14" rx="2" fill="var(--c-ffs)"  opacity="0.9"/>
           <!-- lane 4: Registry -->
-          <rect x="8"   y="81" width="246" height="13" rx="2" fill="var(--c-nor)"  opacity="0.88"/>
+          <rect x="8"   y="122" width="246" height="14" rx="2" fill="var(--c-nor)"  opacity="0.9"/>
+
           <!-- age axis -->
-          <line x1="8" y1="106" x2="252" y2="106" stroke="var(--border)" stroke-width="1"/>
-          <text x="8"   y="118" font-family="system-ui,sans-serif" font-size="8.5" fill="var(--fg3)">0</text>
-          <text x="64"  y="118" font-family="system-ui,sans-serif" font-size="8.5" fill="var(--fg3)">20</text>
-          <text x="120" y="118" font-family="system-ui,sans-serif" font-size="8.5" fill="var(--fg3)">40</text>
-          <text x="153" y="118" font-family="system-ui,sans-serif" font-size="8.5" fill="var(--fg3)" font-weight="600">50+</text>
-          <text x="234" y="118" font-family="system-ui,sans-serif" font-size="8.5" fill="var(--fg3)">80</text>
-          <!-- risk window label -->
-          <text x="160" y="10" font-family="system-ui,sans-serif" font-size="7.5" fill="var(--hi-r)" opacity="0.75" font-weight="600">Dementia risk window</text>
-          <!-- interactive hint -->
-          <rect x="8" y="126" width="246" height="10" rx="2" fill="var(--surface)"/>
-          <text x="131" y="133.5" font-family="system-ui,sans-serif" font-size="7.5" fill="var(--fg3)" text-anchor="middle">Click any row to explore &rarr;</text>
+          <line x1="8" y1="143" x2="252" y2="143" stroke="var(--border)" stroke-width="1"/>
+          <text x="8"   y="153" font-family="system-ui,sans-serif" font-size="9" fill="var(--fg3)">0</text>
+          <text x="61"  y="153" font-family="system-ui,sans-serif" font-size="9" fill="var(--fg3)">20</text>
+          <text x="114" y="153" font-family="system-ui,sans-serif" font-size="9" fill="var(--fg3)">40</text>
+          <text x="151" y="153" font-family="system-ui,sans-serif" font-size="9" font-weight="700" fill="var(--fg2)">50+</text>
+          <text x="232" y="153" font-family="system-ui,sans-serif" font-size="9" fill="var(--fg3)">80</text>
         </svg>
         <p class="ov-caption">Preview &mdash; Coverage Timeline tab</p>
       </div>
@@ -508,7 +551,7 @@ footer {
       </div>
       <div class="note">
         <h3>Open cohort with dynamic entry</h3>
-        <p>Beneficiaries enter the ASD cohort when their second qualifying F84.x claim appears (30+ days after the first), following the Burke 2014 and Vivanti 2025 ascertainment standard. Entry is permitted in any calendar year from 2008 onward, not only at a fixed baseline date, maximizing sample size across ICD-9 to ICD-10 transition years.</p>
+        <p>Beneficiaries enter the ASD cohort when their second qualifying F84.x claim appears (30+ days after the first), following the Burke 2014 and Vivanti 2025 ascertainment standard.<sup><a href="#ref-1" class="cref">[1]</a><a href="#ref-2" class="cref">[2]</a></sup> Entry is permitted in any calendar year from 2008 onward, not only at a fixed baseline date, maximizing sample size across ICD-9 to ICD-10 transition years.</p>
       </div>
       <div class="note">
         <h3>Dual enrollment and SES</h3>
@@ -516,7 +559,7 @@ footer {
       </div>
       <div class="note">
         <h3>Dementia ascertainment</h3>
-        <p>Two validated claims-based approaches are available and closely related. Vivanti et al. 2025 used the Bynum algorithm (McCarthy / Grodstein 2022): ICD-10 codes F01.xx, F02.xx, F03.xx, G30.xx in Part A/B claims <em>plus</em> Part D dementia medications. Tobi's DREAM study (Desai et al. 2025) uses diagnosis codes only — 1 inpatient or 2 outpatient claims — with no Part D component. Both require a clean washout at cohort entry. The team protocol will specify which standard to apply; the choice should be aligned across the group, particularly with Tobi.</p>
+        <p>Two validated claims-based approaches are available and closely related. Vivanti et al. 2025<sup><a href="#ref-2" class="cref">[2]</a></sup> used the Bynum algorithm (McCarthy / Grodstein 2022)<sup><a href="#ref-3" class="cref">[3]</a><a href="#ref-4" class="cref">[4]</a></sup>: ICD-10 codes F01.xx, F02.xx, F03.xx, G30.xx in Part A/B claims <em>plus</em> Part D dementia medications. Tobi's DREAM study (Desai et al. 2025)<sup><a href="#ref-5" class="cref">[5]</a></sup> uses diagnosis codes only — 1 inpatient or 2 outpatient claims — with no Part D component. Both require a clean washout at cohort entry. The team protocol will specify which standard to apply; the choice should be aligned across the group, particularly with Tobi.</p>
       </div>
     </div>
   </section>
@@ -541,24 +584,24 @@ footer {
 
   <section id="refs">
     <h2>Key References</h2>
-    <p class="lead">Citations backing the analytical choices in this document, organized by topic. All PMIDs and DOIs can be verified in PubMed.</p>
+    <p class="lead">Citations backing the analytical choices in this document, organized by topic. Numbered references are linked from inline <sup><a class="cref" href="#ref-1">[N]</a></sup> superscripts throughout the page. All PMIDs and DOIs can be verified in PubMed.</p>
     <div class="ref-cats">
 
       <div class="ref-cat">
         <div class="ref-cat-hd">ASD Ascertainment</div>
         <div class="ref-entries">
-          <div class="ref-entry">
+          <div class="ref-entry" id="ref-1">
             <div class="ref-cit">
-              <strong>Burke JP, Jain A, Yang W, Kelly JP, Kaiser M, Becker L, Lawer L, Newschaffer CJ.</strong>
+              <span class="ref-num">1</span><strong>Burke JP, Jain A, Yang W, Kelly JP, Kaiser M, Becker L, Lawer L, Newschaffer CJ.</strong>
               Does a claims diagnosis of autism mean a true case?
               <em>Autism.</em> 2014;18(3):321–330.
               doi:10.1177/1362361312467709
             </div>
             <div class="ref-note">Establishes the PPV standard for 2+ claims with ASD diagnosis codes at least 30 days apart. Foundational criterion for the study cohort entry definition.</div>
           </div>
-          <div class="ref-entry">
+          <div class="ref-entry" id="ref-2">
             <div class="ref-cit">
-              <strong>Vivanti G, Lee W, Ventimiglia J, Tao S, Lyall K, Shea LL.</strong>
+              <span class="ref-num">2</span><strong>Vivanti G, Lee W, Ventimiglia J, Tao S, Lyall K, Shea LL.</strong>
               Prevalence of Dementia Among US Adults With Autism Spectrum Disorder.
               <em>JAMA Netw Open.</em> 2025;8(1):e2453691. PMID:&nbsp;39745705.
               doi:10.1001/jamanetworkopen.2024.53691
@@ -571,27 +614,27 @@ footer {
       <div class="ref-cat">
         <div class="ref-cat-hd">Dementia Ascertainment</div>
         <div class="ref-entries">
-          <div class="ref-entry">
+          <div class="ref-entry" id="ref-3">
             <div class="ref-cit">
-              <strong>Grodstein F, Chang C-H, Capuano AW, Power MC, Marquez DX, Barnes LL, Bennett DA, James BD, Bynum JPW.</strong>
+              <span class="ref-num">3</span><strong>Grodstein F, Chang C-H, Capuano AW, Power MC, Marquez DX, Barnes LL, Bennett DA, James BD, Bynum JPW.</strong>
               Identification of Dementia in Recent Medicare Claims Data, Compared With Rigorous Clinical Assessments.
               <em>J Gerontol A Biol Sci Med Sci.</em> 2022;77(6):1272–1278. PMID:&nbsp;34919685. PMCID:&nbsp;PMC9159666.
               doi:10.1093/gerona/glab377
             </div>
             <div class="ref-note">Validates ICD-10 algorithm (F01.xx, F02.xx, F03.xx, G30.xx in Part A/B claims, plus Part D dementia medications) against rigorous clinical assessments. With McCarthy et al. 2022, constitutes the "Bynum algorithm" — the standard used by Vivanti et al. 2025.</div>
           </div>
-          <div class="ref-entry">
+          <div class="ref-entry" id="ref-4">
             <div class="ref-cit">
-              <strong>McCarthy EP, Chang CH, Tilton N, Kabeto MU, Langa KM, Bynum JPW.</strong>
+              <span class="ref-num">4</span><strong>McCarthy EP, Chang CH, Tilton N, Kabeto MU, Langa KM, Bynum JPW.</strong>
               Validation of Claims Algorithms to Identify Alzheimer's Disease and Related Dementias.
               <em>J Gerontol A Biol Sci Med Sci.</em> 2022;77(6):1261–1271. PMID:&nbsp;34919686. PMCID:&nbsp;PMC9159657.
               doi:10.1093/gerona/glab373
             </div>
             <div class="ref-note">Companion validation paper; together with Grodstein et al. 2022 above, defines the claims algorithm applied by Vivanti et al. 2025 and proposed for this study.</div>
           </div>
-          <div class="ref-entry">
+          <div class="ref-entry" id="ref-5">
             <div class="ref-cit">
-              <strong>Desai RJ, Varma VR, Mahesri M, Lee SB, Freedman A, Gerhard T, Segal J, Vine S, Ritchey MBE, Horton DB, Thambisetty M.</strong>
+              <span class="ref-num">5</span><strong>Desai RJ, Varma VR, Mahesri M, Lee SB, Freedman A, Gerhard T, Segal J, Vine S, Ritchey MBE, Horton DB, Thambisetty M.</strong>
               Population-Based Validation Results From the Drug Repurposing for Effective Alzheimer's Medicines (DREAM) Study.
               <em>Clinical Pharmacology &amp; Therapeutics.</em> 2025. (epub ahead of print)
               doi:10.1002/cpt.3583
@@ -604,18 +647,18 @@ footer {
       <div class="ref-cat">
         <div class="ref-cat-hd">ASD–Dementia Epidemiology</div>
         <div class="ref-entries">
-          <div class="ref-entry">
+          <div class="ref-entry" id="ref-6">
             <div class="ref-cit">
-              <strong>Vivanti G, Tao S, Lyall K, Robins DL, Shea LL.</strong>
+              <span class="ref-num">6</span><strong>Vivanti G, Tao S, Lyall K, Robins DL, Shea LL.</strong>
               The prevalence and incidence of early-onset dementia among adults with Autism Spectrum Disorder.
               <em>Autism Research.</em> 2021;14(10):2189–2199.
               doi:10.1002/aur.2590
             </div>
             <div class="ref-note">Medicaid Analytic eXtract 2008–2012 (n&nbsp;=&nbsp;12,648 ASD-only adults). ASD-only HR&nbsp;1.96 (95%&nbsp;CI&nbsp;1.69–2.28) for dementia vs. general Medicaid population; mean age at dementia diagnosis ~49 years. Primary precedent for the autism and dementia risk hypothesis.</div>
           </div>
-          <div class="ref-entry">
+          <div class="ref-entry" id="ref-7">
             <div class="ref-cit">
-              <strong>[Karolinska Institutet authors].</strong>
+              <span class="ref-num">7</span><strong>[Karolinska Institutet authors].</strong>
               Association between autism and dementia across generations: evidence from a family study of the Swedish population.
               <em>Molecular Psychiatry.</em> 2025. PMC12436158.
               doi:10.1038/s41380-025-03045-6
@@ -628,9 +671,9 @@ footer {
       <div class="ref-cat">
         <div class="ref-cat-hd">US Medicare Enrollment</div>
         <div class="ref-entries">
-          <div class="ref-entry">
+          <div class="ref-entry" id="ref-8">
             <div class="ref-cit">
-              <strong>Centers for Medicare &amp; Medicaid Services (CMS).</strong>
+              <span class="ref-num">8</span><strong>Centers for Medicare &amp; Medicaid Services (CMS).</strong>
               Medicare Beneficiaries at a Glance, Data Year 2021.
               CMS; 2021.
             </div>
@@ -657,7 +700,7 @@ const PATIENTS = [
       { s: 0,  e: 26, cls: 'src-med',  tip: 'Medicaid via SSI / HCBS waiver' },
       { s: 26, e: 80, cls: 'src-dual', tip: 'Dual enrolled: Medicare FFS + Medicaid' }
     ],
-    info: '<b>Classic autism (F84.0) — disability pathway</b>Enters Medicaid in childhood via SSI. Following SSDI award and the 24-month Medicare waiting period, this patient becomes dual-enrolled at approximately age 26. Medicare FFS then captures the full dementia risk window from ages 50 to 80. This is the dominant trajectory for ASD adults in Medicare, representing the core study cohort. Estimated 90,000 to 160,000 individuals in FFS by 2020 to 2023.<br><br><b>Data source comparison:</b> <i>Medicare FFS only</i> — this patient is still fully captured from age 26 onward; dual enrollees appear in Part A and B claims just like FFS-only beneficiaries. The Medicaid childhood years (ages 0 to 26) are invisible, but the entire dementia risk window is covered. <i>Medicaid only</i> — visible through childhood and retained during dual enrollment, but Medicaid claims are secondary payer for most services, limiting clinical detail. <i>MarketScan only</i> — never observable; this patient never holds commercial insurance.'
+    info: '<b>Classic autism (F84.0) — disability pathway</b>Enters Medicaid in childhood via SSI. Following SSDI award and the 24-month Medicare waiting period, this patient becomes dual-enrolled at approximately age 26. Medicare FFS then captures the full dementia risk window from ages 50 to 80. This is the dominant trajectory for ASD adults in Medicare, representing the core study cohort. Estimated 90,000 to 160,000 individuals in FFS by 2020 to 2023.<sup><a href="#ref-2" class="cref">[2]</a></sup><br><br><b>Data source comparison:</b> <i>Medicare FFS only</i> — this patient is still fully captured from age 26 onward; dual enrollees appear in Part A and B claims just like FFS-only beneficiaries. The Medicaid childhood years (ages 0 to 26) are invisible, but the entire dementia risk window is covered. <i>Medicaid only</i> — visible through childhood and retained during dual enrollment, but Medicaid claims are secondary payer for most services, limiting clinical detail. <i>MarketScan only</i> — never observable; this patient never holds commercial insurance.'
   },
   {
     label: 'Asperger syndrome (F84.5)',
@@ -694,7 +737,7 @@ const PATIENTS = [
     segs: [
       { s: 0, e: 80, cls: 'src-nor', tip: 'Population registry: birth to death, complete coverage' }
     ],
-    info: '<b>Nordic / Israeli population registry — international comparator</b>Complete birth-to-death coverage with no administrative enrollment gaps. ASD is ascertained from childhood clinical records, not insurance claims; no age truncation. The grant includes two registry arms: the <b>Swedish national registry</b> (Sven collaborator, Karolinska Institutet) and the <b>Israeli population database</b> (Avi collaborator). A 2025 <em>Molecular Psychiatry</em> paper from the Swedish registry documents the autism–dementia association across generations using family-based methods (doi:10.1038/s41380-025-03045-6; PMC12436158). These registries serve as an external validity check on the US Medicare findings — not as the primary analytic dataset.<br><br><b>Data source comparison:</b> <i>Medicare FFS only</i> — not applicable; these patients are never in US administrative data. The registry arms serve as population-level benchmarks: because every ASD individual is captured from birth regardless of insurance status, they provide an estimate of the true incidence and dementia rate unaffected by claims-based selection. Differences between the US Medicare findings and registry findings will help quantify how much administrative data coverage gaps bias the US estimates.'
+    info: '<b>Nordic / Israeli population registry — international comparator</b>Complete birth-to-death coverage with no administrative enrollment gaps. ASD is ascertained from childhood clinical records, not insurance claims; no age truncation. The grant includes two registry arms: the <b>Swedish national registry</b><sup><a href="#ref-7" class="cref">[7]</a></sup> (Sven collaborator, Karolinska Institutet) and the <b>Israeli population database</b> (Avi collaborator). A 2025 <em>Molecular Psychiatry</em> paper from the Swedish registry documents the autism–dementia association across generations using family-based methods (doi:10.1038/s41380-025-03045-6; PMC12436158). These registries serve as an external validity check on the US Medicare findings — not as the primary analytic dataset.<br><br><b>Data source comparison:</b> <i>Medicare FFS only</i> — not applicable; these patients are never in US administrative data. The registry arms serve as population-level benchmarks: because every ASD individual is captured from birth regardless of insurance status, they provide an estimate of the true incidence and dementia rate unaffected by claims-based selection. Differences between the US Medicare findings and registry findings will help quantify how much administrative data coverage gaps bias the US estimates.'
   }
 ];
 
@@ -702,7 +745,7 @@ const COMPARISONS = [
   {
     name: 'Non-ASD disability-enrolled',
     badge: 'PRIMARY', bcls: 'b-p',
-    n: 'Estimated pool: 8.7 to 8.9 million',
+    n: 'Estimated pool: 8.7 to 8.9 million<sup><a href="#ref-8" class="cref">[8]</a></sup>',
     scores: { 'Pool size': 5, 'Pathway match': 5, 'SES match': 3, 'Literature precedent': 4, 'Comorbidity control': 4 },
     pros: [
       'Same SSDI Medicare enrollment route as more than 90% of the ASD cohort — the single most important matching criterion',
@@ -743,7 +786,7 @@ const COMPARISONS = [
     ],
     cons: [
       'Substantially smaller pool; matching feasibility depends heavily on the size of the primary ASD cohort',
-      'ADHD carries its own elevated dementia risk trajectory, making it a biased rather than neutral reference group for ADRD outcomes',
+      'ADHD carries its own elevated dementia risk trajectory, making it a biased rather than neutral reference group for ADRD outcomes<sup><a href="#ref-6" class="cref">[6]</a></sup>',
       'Not an established standard comparison in the ASD-dementia literature; would require reviewers to accept a novel design choice'
     ]
   },
@@ -755,7 +798,7 @@ const COMPARISONS = [
     pros: [
       'Controls for the cognitive impairment pathway to Medicare without including autism-specific neurobiological pathways',
       'Similar SSDI and HCBS Medicaid enrollment trajectories to the ASD population',
-      'Used as an active comparison group in several prior ASD health outcomes studies; some reviewer familiarity'
+      'Used as an active comparison group in several prior ASD health outcomes studies; some reviewer familiarity<sup><a href="#ref-6" class="cref">[6]</a></sup>'
     ],
     cons: [
       'Intellectual disability carries its own substantially elevated dementia risk, confounding any ADRD outcome comparison',
@@ -766,12 +809,12 @@ const COMPARISONS = [
   {
     name: 'Age-enrolled non-ASD (65+)',
     badge: 'NOT RECOMMENDED', bcls: 'b-w',
-    n: 'Estimated pool: 25 million',
+    n: 'Estimated pool: 25 million<sup><a href="#ref-8" class="cref">[8]</a></sup>',
     scores: { 'Pool size': 5, 'Pathway match': 1, 'SES match': 1, 'Literature precedent': 5, 'Comorbidity control': 2 },
     pros: [
       'Largest available pool in all of Medicare; no feasibility constraints for any matching design',
       'The standard reference population in virtually all Medicare dementia incidence and ADRD prevalence literature',
-      'Fully validated for ADRD ascertainment using the Bynum algorithm across multiple prior publications'
+      'Fully validated for ADRD ascertainment using the Bynum algorithm across multiple prior publications<sup><a href="#ref-2" class="cref">[2]</a><a href="#ref-3" class="cref">[3]</a><a href="#ref-4" class="cref">[4]</a></sup>'
     ],
     cons: [
       'Fundamentally different enrollment pathway: aged in at 65 versus disability-SSDI pathway for ASD, creating near-unmatchable structural confounding',
@@ -809,8 +852,8 @@ const COMPARISONS = [
   // Defs: dementia risk gradient
   const defs = mk('defs');
   const lg = mk('linearGradient', { id: 'drisk', x1: '0', x2: '1', y1: '0', y2: '0' });
-  const s0 = mk('stop', { offset: '0%', 'stop-color': '#B41E1E', 'stop-opacity': '0' });
-  const s1 = mk('stop', { offset: '100%', 'stop-color': '#B41E1E', 'stop-opacity': '0.13' });
+  const s0 = mk('stop', { offset: '0%', 'stop-color': '#B41E1E', 'stop-opacity': '0.04' });
+  const s1 = mk('stop', { offset: '100%', 'stop-color': '#B41E1E', 'stop-opacity': '0.22' });
   lg.append(s0, s1);
   defs.appendChild(lg);
   svg.appendChild(defs);
@@ -827,7 +870,15 @@ const COMPARISONS = [
   // Dementia risk overlay (50-80)
   const rx = ax(50), rw = ax(80) - ax(50);
   svg.appendChild(mk('rect', { x: rx, y: MT, width: rw, height: PH, fill: 'url(#drisk)' }));
-  const rl = mk('text', { x: rx + rw / 2, y: MT + PH + MB - 5, 'text-anchor': 'middle', 'font-size': '9', 'font-style': 'italic' }, 'gaxis');
+
+  // Vertical boundary line at age 50
+  const rvl = mk('line', { x1: rx, y1: MT - 18, x2: rx, y2: MT + PH, stroke: '#B41E1E', 'stroke-width': '1.5', 'stroke-dasharray': '4,3', opacity: '0.7' });
+  svg.appendChild(rvl);
+
+  // Risk window label — inside chart, top-right of shaded zone
+  const rlBg = mk('rect', { x: rx + 6, y: MT + 5, width: rw - 10, height: 22, rx: '3', fill: '#B41E1E', opacity: '0.08' });
+  svg.appendChild(rlBg);
+  const rl = mk('text', { x: rx + rw / 2, y: MT + 20, 'text-anchor': 'middle', 'font-size': '11', 'font-weight': '600', fill: '#9B1B1B', opacity: '0.9' });
   rl.textContent = 'Rising dementia risk (age 50+)';
   svg.appendChild(rl);
 
