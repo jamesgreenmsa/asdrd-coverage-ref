@@ -458,6 +458,7 @@ sup .cref + .cref { margin-left: 1px; }
   gap: 12px; margin-bottom: 16px;
 }
 @media (max-width: 540px) { .prog-cards { grid-template-columns: 1fr; } }
+a.prog-card, a.prog-library { text-decoration: none; display: block; color: inherit; cursor: pointer; }
 .prog-card {
   background: var(--surface2);
   border: 1.5px solid var(--border);
@@ -665,24 +666,24 @@ sup .cref + .cref { margin-left: 1px; }
       <p class="prog-hub-title">ASD, Cognitive Aging &amp; ADRD</p>
       <p class="prog-hub-sub">Shared research evidence and study design reference</p>
       <div class="prog-cards">
-        <div class="prog-card prog-card--nih">
+        <a href="#timeline" class="prog-card prog-card--nih">
           <span class="prog-card-icon">🧠</span>
           <p class="prog-card-name">ASD / ADRD Risk</p>
           <p class="prog-card-q">Who develops dementia, when, and how do we measure that risk?</p>
           <span class="prog-card-lbl">NIH research program</span>
-        </div>
-        <div class="prog-card prog-card--thome">
+        </a>
+        <a href="#studies" class="prog-card prog-card--thome">
           <span class="prog-card-icon">💊</span>
           <p class="prog-card-name">GLP-1 &amp; Prevention</p>
           <p class="prog-card-q">Can treatment modify risk, through which pathways, and in whom?</p>
           <span class="prog-card-lbl">Thome research program</span>
-        </div>
+        </a>
       </div>
       <div class="prog-arrow">↓</div>
-      <div class="prog-library">
+      <a href="#studies" class="prog-library">
         <div class="prog-library-hd">📚 Shared Evidence Library</div>
         <p class="prog-library-sub">Clinical trials &middot; Observational studies &middot; Validation methods &middot; Research gaps</p>
-      </div>
+      </a>
     </div>
 
     <!-- ═══ ABOUT THIS REFERENCE ══════════════════════════════════ -->
@@ -808,7 +809,7 @@ sup .cref + .cref { margin-left: 1px; }
     <div class="notes" style="margin-bottom:18px">
       <div class="note">
         <h3>Socioeconomic Status Matching</h3>
-        <p>SES is a major confounder in ADRD research: lower-SES individuals have higher comorbidity burden, worse care access, and different medication use patterns. Because ASD diagnosis and coverage pathways also differ substantially by SES (a late-diagnosed adult on commercial insurance until 65 looks very different from a Medicaid-enrolled adult since childhood), whichever comparison group is selected will require SES adjustment or matching. In Medicare and Medicaid claims data, SES is typically proxied by dual-enrollment status, area deprivation index (ADI) tied to zip code or census tract, or low-income subsidy (LIS) receipt under Part D. The cards below do not score on SES matchability directly, but it should be treated as a constraint that applies across all options.</p>
+        <p>SES is a major confounder in ADRD research: lower-SES individuals have higher comorbidity burden, worse care access, and different medication use patterns. Because ASD diagnosis and coverage pathways also differ substantially by SES (a late-diagnosed adult on commercial insurance until 65 looks very different from a Medicaid-enrolled adult since childhood), whichever comparison group is selected will require SES adjustment or matching. In Medicare and Medicaid claims data, SES is typically proxied by dual-enrollment status, area deprivation index (ADI) tied to zip code or census tract, or low-income subsidy (LIS) receipt under Part D. SES matchability is scored explicitly as one of the five dimensions on the comparison cards below. The score reflects how readily available SES proxies (dual-enrollment status, ADI, LIS receipt) can be used to match or adjust for SES differences between the ASD cohort and each candidate comparison group.</p>
       </div>
     </div>
 
@@ -908,7 +909,7 @@ sup .cref + .cref { margin-left: 1px; }
           </div>
           <div class="ref-entry" id="ref-7">
             <div class="ref-cit">
-              <span class="ref-num">7</span><strong>Chang Z, Yao H, Sun S, et al..</strong>
+              <span class="ref-num">7</span><strong>Chang Z, Yao H, Sun S, et al.</strong>
               Association between autism and dementia across generations: evidence from a family study of the Swedish population.
               <em>Molecular Psychiatry.</em> 2025. PMC12436158.
               doi:10.1038/s41380-025-03045-6
@@ -941,6 +942,64 @@ sup .cref + .cref { margin-left: 1px; }
         </div>
       </div>
 
+      <div class="ref-cat">
+        <div class="ref-cat-hd">GLP-1 Receptor Agonists and Dementia</div>
+        <div class="ref-entries">
+          <div class="ref-entry" id="ref-10">
+            <div class="ref-cit">
+              <span class="ref-num">10</span><strong>Cummings JL, Atri A, Sano M, et al.</strong>
+              EVOKE and EVOKE+: Oral semaglutide in early-stage symptomatic Alzheimer's disease (phase 3 randomised, double-blind, placebo-controlled trials).
+              <em>Lancet.</em> 2026 Mar 19.
+              doi:10.1016/S0140-6736(26)00459-9
+            </div>
+            <div class="ref-note">Phase 3 RCT of oral semaglutide vs. placebo in amyloid-confirmed early-stage symptomatic AD. Did not slow cognitive decline on CDR-SB. Motivates the prevention-window hypothesis: GLP-1 benefit, if real, may require intervention before clinical memory symptoms are established.</div>
+          </div>
+          <div class="ref-entry" id="ref-11">
+            <div class="ref-cit">
+              <span class="ref-num">11</span><strong>Tang H, Lu Y, Chen Y, et al.</strong>
+              Mediation analysis of GLP-1 receptor agonist use and risk of Alzheimer's disease and related dementias.
+              <em>Alzheimers Dement.</em> 2025.
+              doi:10.1002/alz.70161
+            </div>
+            <div class="ref-note">T2D new-user cohort (n&nbsp;=&nbsp;22,908; GLP-1 RA vs DPP-4i; Medicare FFS). Natural indirect effects through body weight and HbA1c ≈1.02 — metabolic pathways explain minimal share of the GLP-1/ADRD association. Precedent for the Thome mediation aim; motivates non-metabolic pathway investigation.</div>
+          </div>
+          <div class="ref-entry" id="ref-12">
+            <div class="ref-cit">
+              <span class="ref-num">12</span><strong>Wu C, Bhatt MM, Chen Y, et al.</strong>
+              GLP-1 receptor agonist initiation and dementia risk: intention-to-treat versus on-treatment analysis.
+              <em>Published 2025.</em>
+            </div>
+            <div class="ref-note">Active comparator new-user cohort; GLP-1 RA vs DPP-4i. ITT HR 0.95; during-continuous-treatment HR 0.79. Treatment strategy materially changes the effect estimate. Pre-specification of the follow-up estimand is a key design decision for the Thome and James Medicare analyses.</div>
+          </div>
+          <div class="ref-entry" id="ref-13">
+            <div class="ref-cit">
+              <span class="ref-num">13</span><strong>Zhou Y, et al.</strong>
+              Comparative effectiveness of GLP-1 receptor agonists, DPP-4 inhibitors, and SGLT2 inhibitors on dementia risk.
+              <em>Diabetes Obes Metab.</em> 2026.
+              doi:10.1111/dom.70384
+            </div>
+            <div class="ref-note">Three-arm active comparator study. GLP-1 vs DPP-4i: HR 0.76; GLP-1 vs SGLT2i: HR 1.53. Comparator choice fundamentally changes the apparent treatment effect. Supports DPP-4i as the pre-specified active comparator for the Thome and James Medicare analyses.</div>
+          </div>
+          <div class="ref-entry" id="ref-14">
+            <div class="ref-cit">
+              <span class="ref-num">14</span><strong>Schechter G, et al.</strong>
+              GLP-1 receptor agonists and incident dementia in adults with type 2 diabetes and baseline mild cognitive impairment.
+              <em>Alzheimers Dement Transl Res Clin Interv.</em> 2026.
+              doi:10.1002/trc2.70315
+            </div>
+            <div class="ref-note">Active comparator cohort in T2D + pre-existing MCI; GLP-1 RA vs DPP-4i. HR 0.74 (95% CI 0.57–0.95). Important for Thome Aim 1 interaction hypothesis. However: this study examines MCI-to-dementia transition, not incident MCI in cognitively unimpaired adults — a distinct clinical question from the HR 0.983 in the James Medicare preliminary data.</div>
+          </div>
+          <div class="ref-entry" id="ref-15">
+            <div class="ref-cit">
+              <span class="ref-num">15</span><strong>Siqueira JS, et al.</strong>
+              GLP-1 receptor agonists and cognitive outcomes in Alzheimer's disease and mild cognitive impairment: a systematic review and meta-analysis of randomized controlled trials.
+              <em>Published October 2026.</em>
+            </div>
+            <div class="ref-note">Meta-analysis of 7 RCTs (n&nbsp;=&nbsp;4,132; symptomatic AD or MCI). Pooled CDR-SB effect: 0.09 (95% CI −0.10 to 0.28) — not statistically significant. Together with EVOKE [10], confirms null RCT evidence for treating established symptomatic disease and strengthens the prevention-window hypothesis motivating the Thome observational program.</div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -968,10 +1027,10 @@ const STUDIES = [
     doi: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC8487995/',
     program: 'asd',
     tag: 'core',
-    authors: 'Vivanti G, Tao S, Lyall K, Shea LL.',
+    authors: 'Vivanti G, Tao S, Lyall K, Robins DL, Shea LL.',
     year: 2021,
     journal: 'Autism Res. 2021;14(10):2189–2199.',
-    title: 'Prevalence and incidence of dementia in individuals with autism spectrum disorder',
+    title: 'The prevalence and incidence of early-onset dementia among adults with Autism Spectrum Disorder',
     headline: '~2.6× hazard ratio for incident dementia vs. general Medicaid',
     stat: '2.62',
     statLabel: 'Adjusted HR (combined ASD)',
@@ -1065,13 +1124,13 @@ const STUDIES = [
   },
   {
     id: 'dream2025',
-    doi: 'https://doi.org/10.1002/cpt.3592',
+    doi: 'https://doi.org/10.1002/cpt.3583',
     program: 'both',
     tag: 'design',
-    authors: 'Desai RJ et al. (Gerhard T, co-author).',
+    authors: 'Desai RJ, Varma VR, Mahesri M, Lee SB, Freedman A, Gerhard T, et al.',
     year: 2025,
     journal: 'Clin Pharmacol Ther. 2025;117(4):1039–1050.',
-    title: 'DREAM Study: Drug-related risk of ADRD in Medicare FFS (gabapentinoids)',
+    title: 'Population-based validation results from the Drug Repurposing for Effective Alzheimer\'s Medicines (DREAM) study',
     headline: 'Medicare FFS pharmacoepi design for ADRD outcome using ICD-10 claims',
     stat: '—',
     statLabel: 'Methods precedent for this study',
@@ -1118,7 +1177,7 @@ const STUDIES = [
     doi: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC9159657/',
     program: 'asd',
     tag: 'methods',
-    authors: 'McCarthy EP, Chang CH, Germain-Fabos C, et al.',
+    authors: 'McCarthy EP, Chang CH, Tilton N, Kabeto MU, Langa KM, Bynum JPW.',
     year: 2022,
     journal: 'J Gerontol A. 2022;77(6):1261–1271.',
     title: 'Validation of claims algorithms to identify Alzheimer\'s disease and related dementias',
@@ -1144,10 +1203,10 @@ const STUDIES = [
     doi: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC9159666/',
     program: 'asd',
     tag: 'methods',
-    authors: 'Grodstein F, et al.',
+    authors: 'Grodstein F, Chang C-H, Capuano AW, Power MC, Marquez DX, Barnes LL, Bennett DA, James BD, Bynum JPW.',
     year: 2022,
-    journal: 'Alzheimers Dement (Amst). 2022.',
-    title: 'Validity of Alzheimer\'s disease / ADRD diagnosis codes in Medicare FFS claims (Bynum algorithm)',
+    journal: 'J Gerontol A. 2022;77(6):1272–1278.',
+    title: 'Identification of dementia in recent Medicare claims data, compared with rigorous clinical assessments',
     headline: 'ICD-10-era claims validation of Bynum ADRD algorithm vs. clinical assessment',
     stat: '—',
     statLabel: 'Bynum algorithm ICD-10 validation',
@@ -1176,8 +1235,8 @@ const STUDIES = [
     headline: 'No slowing of cognitive decline in amyloid-confirmed symptomatic AD patients',
     stat: 'Null',
     statLabel: 'Phase 3 RCT result (oral semaglutide vs. placebo)',
-    ref: '—',
-    refId: null,
+    ref: '[10]',
+    refId: 'ref-10',
     design: 'Phase 3 randomized controlled trial',
     data: 'Multi-site RCT (EVOKE and EVOKE+ trials)',
     population: 'Amyloid-confirmed early-stage symptomatic Alzheimer\'s disease patients',
@@ -1227,8 +1286,8 @@ const STUDIES = [
     headline: 'Minimal metabolic mediation — most of the GLP-1/dementia association is not explained by weight or HbA1c changes',
     stat: '~1.02',
     statLabel: 'Natural indirect effect HR (metabolic pathway)',
-    ref: '—',
-    refId: null,
+    ref: '[11]',
+    refId: 'ref-11',
     design: 'Mediation analysis (observational cohort)',
     data: 'Medicare FFS claims (linked)',
     population: 'N=22,908 T2D initiators; GLP-1 RA vs DPP-4i',
@@ -1252,8 +1311,8 @@ const STUDIES = [
     headline: 'HR 0.95 ITT vs HR 0.79 during continuous treatment — treatment strategy materially changes effect estimate',
     stat: '0.79',
     statLabel: 'HR during continuous treatment (GLP-1 vs DPP-4i)',
-    ref: '—',
-    refId: null,
+    ref: '[12]',
+    refId: 'ref-12',
     design: 'Active comparator new user cohort (observational)',
     data: 'Claims or registry data',
     population: 'T2D initiators; GLP-1 RA vs DPP-4i',
@@ -1269,17 +1328,18 @@ const STUDIES = [
   },
   {
     id: 'zhou2026',
+    doi: 'https://doi.org/10.1111/dom.70384',
     tag: 'glp1obs',
     program: 'glp1',
     authors: 'Zhou Y, et al.',
     year: 2026,
-    journal: 'Published 2026 (see citation for full reference).',
+    journal: 'Diabetes Obes Metab. 2026. doi:10.1111/dom.70384.',
     title: 'Comparative effectiveness of GLP-1 RAs, DPP-4 inhibitors, and SGLT2 inhibitors on dementia risk',
     headline: 'GLP-1 vs DPP-4i HR 0.76; GLP-1 vs SGLT2i HR 1.53 — comparator choice materially changes interpretation',
     stat: '0.76',
     statLabel: 'HR vs DPP-4i comparator',
-    ref: '—',
-    refId: null,
+    ref: '[13]',
+    refId: 'ref-13',
     design: 'Active comparator new user cohort (observational)',
     data: 'Claims data',
     population: 'T2D initiators; three-arm comparison',
@@ -1295,17 +1355,18 @@ const STUDIES = [
   },
   {
     id: 'schechter2026',
+    doi: 'https://doi.org/10.1002/trc2.70315',
     tag: 'glp1obs',
     program: 'glp1',
     authors: 'Schechter G, et al.',
     year: 2026,
-    journal: 'Published 2026 (see citation for full reference).',
+    journal: 'Alzheimers Dement Transl Res Clin Interv. 2026. doi:10.1002/trc2.70315.',
     title: 'GLP-1 receptor agonists and incident dementia in adults with T2D and baseline mild cognitive impairment',
     headline: 'HR 0.74 (95% CI 0.57–0.95) for incident dementia in T2D adults with pre-existing MCI',
     stat: '0.74',
     statLabel: 'HR for incident dementia (T2D + MCI baseline)',
-    ref: '—',
-    refId: null,
+    ref: '[14]',
+    refId: 'ref-14',
     design: 'Observational cohort (active comparator)',
     data: 'Claims or health system data',
     population: 'Adults with T2D and pre-existing MCI; GLP-1 RA vs DPP-4i',
@@ -1329,8 +1390,8 @@ const STUDIES = [
     headline: 'Pooled CDR-SB: 0.09 (95% CI −0.10 to 0.28) — no significant effect on cognition or progression across 7 RCTs',
     stat: 'Null',
     statLabel: 'Meta-analysis of 7 RCTs, N=4,132',
-    ref: '—',
-    refId: null,
+    ref: '[15]',
+    refId: 'ref-15',
     design: 'Systematic review and meta-analysis of randomized controlled trials',
     data: 'Seven published RCTs',
     population: 'N=4,132; established AD or MCI patients enrolled in randomized trials',
@@ -1462,7 +1523,7 @@ const COMPARISONS = [
   },
   {
     name: 'Age-enrolled non-ASD (65+)',
-    badge: 'NOT RECOMMENDED', bcls: 'b-w',
+    badge: 'ALTERNATIVE ESTIMAND', bcls: 'b-s',
     n: 'Estimated pool: 25 million<sup><a href="#ref-8" class="cref">[8]</a></sup>',
     scores: { 'Pool size': 5, 'Pathway match': 1, 'SES match': 1, 'Literature precedent': 5, 'Comorbidity control': 2 },
     pros: [
