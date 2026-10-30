@@ -323,6 +323,75 @@ footer {
   .note { grid-template-columns: 1fr; }
   .note h3 { border-right: none; border-bottom: 1px solid var(--border); }
 }
+
+/* ── OVERVIEW LANDING ── */
+.ov-hero {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+  margin-bottom: 28px;
+}
+.ov-copy { flex: 1; min-width: 0; }
+.ov-kicker {
+  display: inline-block;
+  font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .07em;
+  color: var(--blue);
+  border: 1px solid var(--blue);
+  border-radius: 3px;
+  padding: 2px 7px;
+  margin-bottom: 12px;
+  opacity: .85;
+}
+.ov-copy .lead { margin-bottom: 10px; }
+.ov-note {
+  font-size: 12px; color: var(--fg3);
+  border-left: 3px solid var(--border);
+  padding-left: 10px;
+  margin: 0;
+  font-style: italic;
+}
+.ov-preview {
+  width: 260px;
+  flex-shrink: 0;
+}
+.ov-mini {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface2);
+  display: block;
+}
+.ov-caption {
+  font-size: 11px; color: var(--fg3); text-align: center;
+  margin: 5px 0 0;
+}
+.ov-tabs {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+.ov-tab {
+  display: block;
+  text-decoration: none;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px 16px;
+  transition: border-color .15s, box-shadow .15s;
+}
+.ov-tab:hover { border-color: var(--blue); box-shadow: 0 0 0 2px color-mix(in srgb, var(--blue) 18%, transparent); }
+.ov-tab-num {
+  font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em;
+  color: var(--fg3); margin-bottom: 4px;
+}
+.ov-tab h3 { margin: 0 0 4px; font-size: 13.5px; font-weight: 600; color: var(--fg); }
+.ov-tab p  { margin: 0; font-size: 12.5px; color: var(--fg2); line-height: 1.5; }
+@media (max-width: 700px) {
+  .ov-hero { flex-direction: column; }
+  .ov-preview { width: 100%; }
+  .ov-tabs { grid-template-columns: 1fr; }
+}
+
 </style>
 
 <header class="hdr">
@@ -331,13 +400,82 @@ footer {
 </header>
 
 <nav class="nav" id="top-nav">
-  <a href="#timeline" class="active">Coverage Timeline</a>
+  <a href="#overview" class="active">Overview</a>
+  <a href="#timeline">Coverage Timeline</a>
   <a href="#approach">Design Approach</a>
   <a href="#comparison">Comparison Groups</a>
   <a href="#refs">References</a>
 </nav>
 
 <div class="wrap">
+
+  <section id="overview">
+    <div class="ov-hero">
+      <div class="ov-copy">
+        <div class="ov-kicker">Draft Working Reference &middot; ASD and Alzheimer&rsquo;s / ADRD Risk Grant</div>
+        <p class="lead">This page supports analytic design discussions for a funded NIH study on Alzheimer&rsquo;s disease and ADRD risk in adults with autism spectrum disorder. The team is working through decisions about which data sources to use, how to define the study cohort, and which comparison group offers the best methodological fit. This reference summarizes those options, with supporting evidence from the literature, in one interactive place.</p>
+        <p class="lead">It is intended for the analytic team and collaborators who are actively shaping the Medicare study design. Content reflects decisions and open questions as of late October 2026 and will be updated as the team aligns.</p>
+        <p class="ov-note">This is a working draft. Please flag anything that does not match the team&rsquo;s current thinking.</p>
+      </div>
+      <div class="ov-preview">
+        <svg class="ov-mini" viewBox="0 0 260 138" aria-label="Preview of the coverage timeline chart">
+          <!-- dementia risk window shading -->
+          <rect x="156" y="4" width="98" height="104" rx="2" fill="var(--hi-r)" opacity="0.07"/>
+          <!-- lane 1: Medicaid + Dual -->
+          <rect x="8"   y="12" width="62"  height="13" rx="2" fill="var(--c-med)"  opacity="0.88"/>
+          <rect x="70"  y="12" width="184" height="13" rx="2" fill="var(--c-dual)" opacity="0.88"/>
+          <!-- lane 2: Medicaid + Commercial + Gap + FFS -->
+          <rect x="8"   y="35" width="50"  height="13" rx="2" fill="var(--c-med)"  opacity="0.88"/>
+          <rect x="58"  y="35" width="79"  height="13" rx="2" fill="var(--c-com)"  opacity="0.88"/>
+          <rect x="137" y="35" width="19"  height="13" rx="2" fill="var(--c-gap)"  opacity="0.5"/>
+          <rect x="156" y="35" width="98"  height="13" rx="2" fill="var(--c-ffs)"  opacity="0.88"/>
+          <!-- lane 3: Commercial + FFS -->
+          <rect x="8"   y="58" width="148" height="13" rx="2" fill="var(--c-com)"  opacity="0.88"/>
+          <rect x="156" y="58" width="98"  height="13" rx="2" fill="var(--c-ffs)"  opacity="0.88"/>
+          <!-- lane 4: Registry -->
+          <rect x="8"   y="81" width="246" height="13" rx="2" fill="var(--c-nor)"  opacity="0.88"/>
+          <!-- age axis -->
+          <line x1="8" y1="106" x2="252" y2="106" stroke="var(--border)" stroke-width="1"/>
+          <text x="8"   y="118" font-family="system-ui,sans-serif" font-size="8.5" fill="var(--fg3)">0</text>
+          <text x="64"  y="118" font-family="system-ui,sans-serif" font-size="8.5" fill="var(--fg3)">20</text>
+          <text x="120" y="118" font-family="system-ui,sans-serif" font-size="8.5" fill="var(--fg3)">40</text>
+          <text x="153" y="118" font-family="system-ui,sans-serif" font-size="8.5" fill="var(--fg3)" font-weight="600">50+</text>
+          <text x="234" y="118" font-family="system-ui,sans-serif" font-size="8.5" fill="var(--fg3)">80</text>
+          <!-- risk window label -->
+          <text x="160" y="10" font-family="system-ui,sans-serif" font-size="7.5" fill="var(--hi-r)" opacity="0.75" font-weight="600">Dementia risk window</text>
+          <!-- interactive hint -->
+          <rect x="8" y="126" width="246" height="10" rx="2" fill="var(--surface)"/>
+          <text x="131" y="133.5" font-family="system-ui,sans-serif" font-size="7.5" fill="var(--fg3)" text-anchor="middle">Click any row to explore &rarr;</text>
+        </svg>
+        <p class="ov-caption">Preview &mdash; Coverage Timeline tab</p>
+      </div>
+    </div>
+
+    <div class="ov-tabs">
+      <a href="#timeline" class="ov-tab">
+        <div class="ov-tab-num">Tab 1</div>
+        <h3>Coverage Timeline</h3>
+        <p>How five patient types move through Medicare, Medicaid, and commercial coverage across the lifespan. Click any row to see enrollment pathway details and data source comparisons.</p>
+      </a>
+      <a href="#approach" class="ov-tab">
+        <div class="ov-tab-num">Tab 2</div>
+        <h3>Design Approach</h3>
+        <p>Rationale for the dynamic open cohort design and notes on dementia ascertainment, including a comparison of the Bynum algorithm and Tobi&rsquo;s DREAM approach.</p>
+      </a>
+      <a href="#comparison" class="ov-tab">
+        <div class="ov-tab-num">Tab 3</div>
+        <h3>Comparison Groups</h3>
+        <p>Five candidate comparison populations scored across five methodological dimensions. Pros and cons for each are shown directly on the card.</p>
+      </a>
+      <a href="#refs" class="ov-tab">
+        <div class="ov-tab-num">Tab 4</div>
+        <h3>References</h3>
+        <p>Citations organized by analytic category: ASD ascertainment, dementia ascertainment, ASD-dementia epidemiology, and US Medicare enrollment.</p>
+      </a>
+    </div>
+  </section>
+
+  <hr class="div" style="margin-top:36px">
 
   <section id="timeline">
     <h2>ASD Patient Coverage by Data Source and Age</h2>
