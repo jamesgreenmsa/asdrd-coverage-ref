@@ -1,5 +1,6 @@
-<title>ASD and Alzheimer's / ADRD Risk Coverage Reference</title>
+<title>ASD, Cognitive Aging &amp; ADRD</title>
 <meta name="claude:viewport-fit-sides" content="cover">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
 <style>
 /* Layout: sticky nav + two scrollable sections; SVG Gantt as visual anchor */
@@ -430,11 +431,221 @@ footer {
 .cref:hover { text-decoration: underline; }
 sup .cref + .cref { margin-left: 1px; }
 
+
+
+
+/* ── TWO-PROGRAM HUB ────────────────────────────────────────── */
+.prog-hub {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: 14px;
+  padding: 28px 20px 22px;
+  text-align: center;
+  margin-bottom: 28px;
+}
+.prog-hub-title {
+  font-size: clamp(1.25em, 4vw, 1.65em);
+  font-weight: 800; color: var(--fg);
+  margin: 0 0 5px;
+}
+.prog-hub-sub {
+  font-size: 0.88em; color: var(--fg3);
+  margin: 0 0 22px;
+}
+.prog-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px; margin-bottom: 16px;
+}
+@media (max-width: 540px) { .prog-cards { grid-template-columns: 1fr; } }
+.prog-card {
+  background: var(--surface2);
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 14px;
+  text-align: left;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.prog-card:hover { border-color: var(--blue); box-shadow: 0 2px 10px rgba(0,0,0,0.08); }
+.prog-card--nih   { border-left: 3px solid var(--navy); }
+.prog-card--thome { border-left: 3px solid var(--c-nor); }
+.prog-card-icon { font-size: 1.5em; margin-bottom: 8px; display: block; }
+.prog-card-name {
+  font-size: 1.02em; font-weight: 800; color: var(--fg);
+  margin: 0 0 8px; line-height: 1.25;
+}
+.prog-card-q {
+  font-size: 0.84em; color: var(--fg2);
+  line-height: 1.55; margin: 0 0 10px;
+}
+.prog-card-lbl {
+  font-size: 0.7em; font-weight: 700; color: var(--fg3);
+  text-transform: uppercase; letter-spacing: 0.055em;
+}
+.prog-arrow {
+  font-size: 1.35em; color: var(--fg3);
+  margin: 4px 0 10px; line-height: 1;
+}
+.prog-library {
+  background: var(--surface2);
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  padding: 13px 16px;
+}
+.prog-library-hd {
+  font-size: 0.98em; font-weight: 700; color: var(--fg);
+  display: flex; align-items: center; justify-content: center;
+  gap: 7px; margin-bottom: 4px;
+}
+.prog-library-sub {
+  font-size: 0.79em; color: var(--fg3);
+  margin: 0; line-height: 1.5;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .prog-hub,
+  :root:not([data-theme="light"]) .prog-card,
+  :root:not([data-theme="light"]) .prog-library {
+    border-color: var(--border);
+  }
+}
+:root[data-theme="dark"] .prog-hub,
+:root[data-theme="dark"] .prog-card,
+:root[data-theme="dark"] .prog-library { border-color: var(--border); }
+
+/* ── STUDY LIBRARY FILTERS ─────────────────────────────────── */
+.studies-filters {
+  display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; align-items: center;
+}
+.filter-label { font-size: 0.78em; font-weight: 700; color: var(--fg3); margin-right: 4px; }
+.filter-chip {
+  padding: 4px 12px; border-radius: 20px; border: 1.5px solid var(--border);
+  font-size: 0.73em; font-weight: 600; cursor: pointer;
+  background: var(--surface); color: var(--fg3); transition: all 0.15s;
+}
+.filter-chip:hover { border-color: var(--blue); color: var(--blue); }
+.filter-chip.active { background: var(--blue); border-color: var(--blue); color: #fff; }
+.study-card[hidden] { display: none !important; }
+
+/* ── KEY STUDIES SECTION ─────────────────────────────────── */
+.studies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 14px;
+  margin: 18px 0 0;
+}
+
+.study-card {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: box-shadow 0.15s, border-color 0.15s;
+}
+.study-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.10); border-color: var(--blue); }
+.study-card.open  { border-color: var(--blue); box-shadow: 0 2px 10px rgba(0,0,0,0.08); }
+
+.sc-head {
+  padding: 14px 16px 12px;
+}
+.sc-tag {
+  display: inline-block;
+  font-size: 9px; font-weight: 700; letter-spacing: 0.06em;
+  text-transform: uppercase; border-radius: 4px;
+  padding: 2px 7px; margin-bottom: 8px;
+}
+.st-core    { background: #fde8e8; color: #b91c1c; }
+.st-methods { background: #dbeafe; color: #1d4ed8; }
+.st-design  { background: #d1fae5; color: #065f46; }
+.st-context { background: #ede9fe; color: #6d28d9; }
+.st-glp1obs { background: #fef3c7; color: #92400e; }
+.st-glp1rct { background: #fce7f3; color: #9d174d; }
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .st-glp1obs { background: rgba(146,64,14,0.22);  color: #fcd34d; }
+  :root:not([data-theme="light"]) .st-glp1rct { background: rgba(157,23,77,0.22);  color: #f9a8d4; }
+}
+:root[data-theme="dark"] .st-glp1obs { background: rgba(146,64,14,0.22);  color: #fcd34d; }
+:root[data-theme="dark"] .st-glp1rct { background: rgba(157,23,77,0.22);  color: #f9a8d4; }
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .st-core    { background: rgba(185,28,28,0.22);  color: #fca5a5; }
+  :root:not([data-theme="light"]) .st-methods { background: rgba(29,78,216,0.22);  color: #93c5fd; }
+  :root:not([data-theme="light"]) .st-design  { background: rgba(6,95,70,0.22);    color: #6ee7b7; }
+  :root:not([data-theme="light"]) .st-context { background: rgba(109,40,217,0.22); color: #c4b5fd; }
+}
+:root[data-theme="dark"] .st-core    { background: rgba(185,28,28,0.22);  color: #fca5a5; }
+:root[data-theme="dark"] .st-methods { background: rgba(29,78,216,0.22);  color: #93c5fd; }
+:root[data-theme="dark"] .st-design  { background: rgba(6,95,70,0.22);    color: #6ee7b7; }
+:root[data-theme="dark"] .st-context { background: rgba(109,40,217,0.22); color: #c4b5fd; }
+
+.sc-stat-row {
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 8px;
+}
+.sc-stat-val {
+  font-size: 1.9em; font-weight: 800; color: var(--blue);
+  line-height: 1; white-space: nowrap; min-width: 3.2ch;
+}
+.sc-stat-lbl { font-size: 0.72em; color: var(--fg3); line-height: 1.3; }
+.sc-title { font-size: 0.82em; font-weight: 600; color: var(--fg); line-height: 1.35; margin-bottom: 4px; }
+.sc-meta  { font-size: 0.72em; color: var(--fg3); }
+
+.sc-expand-btn {
+  display: flex; align-items: center; justify-content: space-between;
+  width: 100%; padding: 8px 16px;
+  background: var(--surface2);
+  border: none; border-top: 1px solid var(--border);
+  font-size: 0.75em; font-weight: 600; color: var(--blue);
+  cursor: pointer; text-align: left;
+}
+.sc-chevron { transition: transform 0.2s; font-size: 0.85em; }
+.study-card.open .sc-chevron { transform: rotate(180deg); }
+
+.sc-detail {
+  display: none;
+  padding: 14px 16px;
+  border-top: 1px solid var(--border);
+  background: var(--surface2);
+  font-size: 0.8em;
+}
+.study-card.open .sc-detail { display: block; }
+
+.sc-detail h4 { font-size: 0.85em; font-weight: 700; color: var(--blue); margin: 10px 0 4px; text-transform: uppercase; letter-spacing: 0.04em; }
+.sc-detail h4:first-child { margin-top: 0; }
+.sc-detail p { margin: 0 0 6px; line-height: 1.5; color: var(--fg); }
+.sc-detail ul { margin: 4px 0 8px 16px; padding: 0; }
+.sc-detail li { margin-bottom: 3px; line-height: 1.5; color: var(--fg); }
+.sc-detail .sc-ref-link { color: var(--blue); font-weight: 700; text-decoration: none; }
+.sc-detail .sc-ref-link:hover { text-decoration: underline; }
+.sc-design-row {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 4px 12px;
+  margin-bottom: 8px;
+}
+.sc-design-item label { display: block; font-size: 0.8em; color: var(--fg3); font-weight: 600; }
+.sc-design-item span  { color: var(--fg); }
+.sc-relevance {
+  background: color-mix(in srgb, var(--blue) 8%, transparent);
+  border-left: 3px solid var(--blue);
+  padding: 8px 10px;
+  border-radius: 0 6px 6px 0;
+  line-height: 1.5;
+}
+
+.studies-legend {
+  display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px;
+}
+.studies-legend span {
+  font-size: 0.73em; font-weight: 700; letter-spacing: 0.05em;
+  text-transform: uppercase; border-radius: 4px; padding: 3px 9px;
+}
+
 </style>
 
 <header class="hdr">
-  <h1>ASD and Alzheimer's / ADRD Risk — Coverage and Comparison Reference</h1>
-  <p>Medicare FFS enrollment pathways &middot; Comparison group scorecard &middot; Dynamic cohort rationale &middot; October 2026</p>
+  <h1>ASD, Cognitive Aging &amp; ADRD</h1>
+  <p>Shared research evidence and study design reference &middot; NIH ASD/ADRD Program + Thome GLP-1 Program &middot; October 2026</p>
 </header>
 
 <nav class="nav" id="top-nav">
@@ -442,19 +653,46 @@ sup .cref + .cref { margin-left: 1px; }
   <a href="#timeline">Coverage Timeline</a>
   <a href="#approach">Design Approach</a>
   <a href="#comparison">Comparison Groups</a>
+  <a href="#studies">Study Library</a>
   <a href="#refs">References</a>
 </nav>
 
 <div class="wrap">
 
   <section id="overview">
+    <!-- ═══ TWO-PROGRAM HUB ═══════════════════════════════════════ -->
+    <div class="prog-hub">
+      <p class="prog-hub-title">ASD, Cognitive Aging &amp; ADRD</p>
+      <p class="prog-hub-sub">Shared research evidence and study design reference</p>
+      <div class="prog-cards">
+        <div class="prog-card prog-card--nih">
+          <span class="prog-card-icon">🧠</span>
+          <p class="prog-card-name">ASD / ADRD Risk</p>
+          <p class="prog-card-q">Who develops dementia, when, and how do we measure that risk?</p>
+          <span class="prog-card-lbl">NIH research program</span>
+        </div>
+        <div class="prog-card prog-card--thome">
+          <span class="prog-card-icon">💊</span>
+          <p class="prog-card-name">GLP-1 &amp; Prevention</p>
+          <p class="prog-card-q">Can treatment modify risk, through which pathways, and in whom?</p>
+          <span class="prog-card-lbl">Thome research program</span>
+        </div>
+      </div>
+      <div class="prog-arrow">↓</div>
+      <div class="prog-library">
+        <div class="prog-library-hd">📚 Shared Evidence Library</div>
+        <p class="prog-library-sub">Clinical trials &middot; Observational studies &middot; Validation methods &middot; Research gaps</p>
+      </div>
+    </div>
+
+    <!-- ═══ ABOUT THIS REFERENCE ══════════════════════════════════ -->
     <div class="ov-hero">
       <div class="ov-copy">
-        <div class="ov-kicker">Draft Working Reference &middot; ASD and Alzheimer&rsquo;s / ADRD Risk Grant</div>
-        <h2 class="ov-title">ASD and Alzheimer&rsquo;s Disease / ADRD Risk<br><span class="ov-subtitle">Study Design Reference</span></h2>
-        <p class="lead">This page supports analytic design discussions for a funded NIH study on Alzheimer&rsquo;s disease and ADRD risk in adults with autism spectrum disorder. The team is working through decisions about which data sources to use, how to define the study cohort, and which comparison group offers the best methodological fit. This reference summarizes those options, with supporting evidence from the literature, in one interactive place.</p>
-        <p class="lead">It is intended for the analytic team and collaborators who are actively shaping the Medicare study design. Content reflects decisions and open questions as of late October 2026 and will be updated as the team aligns.</p>
-        <p class="ov-note">This is a working draft. Please flag anything that does not match the team&rsquo;s current thinking.</p>
+        <div class="ov-kicker">Working Reference &middot; October 2026</div>
+        <h2 class="ov-title">About this reference</h2>
+        <p class="lead">This page supports two connected research programs in autism, cognitive aging, and dementia risk. The <strong>NIH ASD/ADRD program</strong> examines dementia incidence and risk in Medicare-enrolled adults with autism spectrum disorder. The <strong>Thome GLP-1 program</strong> tests whether GLP-1 receptor agonist initiation is associated with lower ADRD risk, and through which biological pathways, with an ASD subgroup analysis as one aim.</p>
+        <p class="lead">The Shared Evidence Library connects published studies to the specific design questions each program is resolving: which comparators are valid, which outcomes are well-ascertained, where the randomized evidence is null and why, and which analytic choices the published literature supports or challenges.</p>
+        <p class="ov-note">Working draft. Please flag anything that does not match the team&rsquo;s current thinking. The coverage timeline, design approach, and comparison group material below reflect the NIH ASD/ADRD program. GLP-1 program content is captured in the Shared Evidence Library and will expand in future updates.</p>
       </div>
       <div class="ov-preview">
         <svg class="ov-mini" viewBox="0 0 260 160" aria-label="Preview of the coverage timeline chart">
@@ -490,11 +728,11 @@ sup .cref + .cref { margin-left: 1px; }
           <text x="151" y="153" font-family="system-ui,sans-serif" font-size="9" font-weight="700" fill="var(--fg2)">50+</text>
           <text x="232" y="153" font-family="system-ui,sans-serif" font-size="9" fill="var(--fg3)">80</text>
         </svg>
-        <p class="ov-caption">Preview &mdash; Coverage Timeline tab</p>
       </div>
     </div>
 
-    <div class="ov-tabs">
+    <!-- ═══ SECTION PREVIEW GRID ══════════════════════════════════ -->
+<div class="ov-tabs">
       <a href="#timeline" class="ov-tab">
         <div class="ov-tab-num">Tab 1</div>
         <h3>Coverage Timeline</h3>
@@ -517,9 +755,6 @@ sup .cref + .cref { margin-left: 1px; }
       </a>
     </div>
   </section>
-
-  <hr class="div" style="margin-top:36px">
-
   <section id="timeline">
     <h2>ASD Patient Coverage by Data Source and Age</h2>
     <p class="lead">Five patient archetypes showing which data source captures them at each age. The shaded band marks the rising dementia risk window (age 50+). Click any row for interpretation notes.</p>
@@ -547,11 +782,11 @@ sup .cref + .cref { margin-left: 1px; }
     <div class="notes">
       <div class="note">
         <h3>No minimum enrollment requirement</h3>
-        <p>ASD adults cycle between Medicaid and Medicare as their waiver and disability status changes. A 12-month continuous enrollment filter would exclude an estimated 50 to 60 percent of the ASD cohort. Under the dynamic open-cohort design, person-time accrues only in enrolled months; enrollment gaps suspend but do not terminate follow-up.</p>
+        <p>ASD adults cycle between Medicaid and Medicare as their waiver and disability status changes. A 12-month continuous enrollment filter would exclude an estimated 50 to 60 percent of the ASD cohort (provisional estimate; to be confirmed in the study data). Under the dynamic open-cohort design, person-time accrues only in enrolled months; enrollment gaps suspend but do not terminate follow-up.</p>
       </div>
       <div class="note">
         <h3>Open cohort with dynamic entry</h3>
-        <p>Beneficiaries enter the ASD cohort when their second qualifying F84.x claim appears (30+ days after the first), following the Burke 2014 and Vivanti 2025 ascertainment standard.<sup><a href="#ref-1" class="cref">[1]</a><a href="#ref-2" class="cref">[2]</a></sup> Entry is permitted in any calendar year from 2008 onward, not only at a fixed baseline date. Pre-October 2015 entry requires ICD-9-CM code 299.x; October 2015 onward uses ICD-10-CM F84.x. A stated rule is needed for linking qualifying claims across the coding transition (e.g., whether a 299.x claim and an F84.x claim within the same observation window count as the two-claim pair).</p>
+        <p>Beneficiaries enter the ASD cohort when their second qualifying F84.x claim appears, following the Burke 2014 and Vivanti 2025 two-claim ascertainment approach.<sup><a href="#ref-1" class="cref">[1]</a><a href="#ref-2" class="cref">[2]</a></sup> A minimum 30-day separation between qualifying claims is a proposed operational requirement pending team confirmation of the specific interval. Entry is permitted in any calendar year from 2008 onward, not only at a fixed baseline date. Pre-October 2015 entry requires ICD-9-CM code 299.x; October 2015 onward uses ICD-10-CM F84.x. A stated rule is needed for linking qualifying claims across the coding transition (e.g., whether a 299.x claim and an F84.x claim within the same observation window count as the two-claim pair).</p>
       </div>
       <div class="note">
         <h3>Dual enrollment and SES</h3>
@@ -582,6 +817,21 @@ sup .cref + .cref { margin-left: 1px; }
 
   <hr class="div" style="margin-top:36px">
 
+  
+  <section id="studies">
+    <h2>Shared Evidence Library</h2>
+    <p class="lead">Published evidence underlying this study&#8217;s scientific rationale, design choices, and methodological precedents. Click any tile to expand study details.</p>
+    <div class="studies-filters" id="studies-filters">
+    <span class="filter-label">Show:</span>
+    <button class="filter-chip active" data-filter="all">All studies</button>
+    <button class="filter-chip" data-filter="asd">NIH ASD / ADRD</button>
+    <button class="filter-chip" data-filter="glp1">Thome GLP-1</button>
+    <button class="filter-chip" data-filter="both">Shared</button>
+  </div>
+  <div class="studies-legend" id="studies-legend"></div>
+    <div class="studies-grid" id="studies-grid"></div>
+  </section>
+
   <section id="refs">
     <h2>Key References</h2>
     <p class="lead">Citations backing the analytical choices in this document, organized by topic. Numbered references are linked from inline <sup><a class="cref" href="#ref-1">[N]</a></sup> superscripts throughout the page. All PMIDs and DOIs can be verified in PubMed.</p>
@@ -597,7 +847,7 @@ sup .cref + .cref { margin-left: 1px; }
               <em>Autism.</em> 2014;18(3):321–330.
               doi:10.1177/1362361312467709
             </div>
-            <div class="ref-note">Establishes the PPV standard for 2+ claims with ASD diagnosis codes at least 30 days apart. Foundational criterion for the study cohort entry definition.</div>
+            <div class="ref-note">Establishes the PPV standard for 2+ ASD diagnosis code claims on separate dates (PPV 87.4% in a pediatric Medicaid validation sample). Supports the two-claim ascertainment approach; a 30-day minimum separation between claims is a proposed operational requirement — the specific interval should be confirmed against a published source before protocol finalization.</div>
           </div>
           <div class="ref-entry" id="ref-2">
             <div class="ref-cit">
@@ -658,7 +908,7 @@ sup .cref + .cref { margin-left: 1px; }
           </div>
           <div class="ref-entry" id="ref-7">
             <div class="ref-cit">
-              <span class="ref-num">7</span><strong>[Karolinska Institutet authors].</strong>
+              <span class="ref-num">7</span><strong>Chang Z, Yao H, Sun S, et al..</strong>
               Association between autism and dementia across generations: evidence from a family study of the Swedish population.
               <em>Molecular Psychiatry.</em> 2025. PMC12436158.
               doi:10.1038/s41380-025-03045-6
@@ -679,6 +929,15 @@ sup .cref + .cref { margin-left: 1px; }
             </div>
             <div class="ref-note">63.9M total Medicare beneficiaries; ~57% in FFS (~36.4M); ~13% under age 65 (~8.3M disability-enrolled). Basis for comparison group pool size estimates used in this document.</div>
           </div>
+          <div class="ref-entry" id="ref-9">
+            <div class="ref-cit">
+              <span class="ref-num">9</span><strong>Nikahd M, Hyer M, Wolf B, et al.</strong>
+              Risk of Dementia and Related Neurocognitive Disorders Among Autistic and Non-Autistic Older Adults.
+              <em>Age Ageing.</em> 2026;55(2):afag015.
+              doi:10.1093/ageing/afag015
+            </div>
+            <div class="ref-note">Medicare FFS 2013–2021; 9,201 autistic adults aged 65+ matched 1:2 to 18,356 non-autistic controls. Adjusted subhazard ratio for neurocognitive disorders: 1.20 overall; 1.46 (95% CI 1.36–1.57) for ASD with intellectual disability. Demonstrates that a matched Medicare age-enrolled comparison yields valid dementia risk estimates for older autistic adults and provides published precedent for the age-65+ non-ASD comparator design.</div>
+          </div>
         </div>
       </div>
 
@@ -692,6 +951,401 @@ sup .cref + .cref { margin-left: 1px; }
 <script>
 // ── DATA ──────────────────────────────────────────────────────────────────────
 
+
+/* ── KEY STUDIES DATA ─────────────────────────────────────── */
+const STUDY_TAGS = {
+  'core':    { label: 'Core Risk Evidence',       cls: 'st-core'    },
+  'methods': { label: 'Methods / Ascertainment',  cls: 'st-methods' },
+  'design':  { label: 'Design Precedent',         cls: 'st-design'  },
+  'context': { label: 'Broader Context',          cls: 'st-context' },
+  'glp1obs': { label: 'GLP-1: Observational',        cls: 'st-glp1obs' },
+  'glp1rct': { label: 'GLP-1: Randomized Trial',     cls: 'st-glp1rct' }
+};
+
+const STUDIES = [
+  {
+    id: 'vivanti2021',
+    doi: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC8487995/',
+    program: 'asd',
+    tag: 'core',
+    authors: 'Vivanti G, Tao S, Lyall K, Shea LL.',
+    year: 2021,
+    journal: 'Autism Res. 2021;14(10):2189–2199.',
+    title: 'Prevalence and incidence of dementia in individuals with autism spectrum disorder',
+    headline: '~2.6× hazard ratio for incident dementia vs. general Medicaid',
+    stat: '2.62',
+    statLabel: 'Adjusted HR (combined ASD)',
+    ref: '[6]',
+    refId: 'ref-6',
+    design: 'Retrospective cohort',
+    data: 'Medicaid Analytic eXtract (MAX) 2008–2012',
+    population: '12,648 ASD adults (mean age ~35), compared to general Medicaid population',
+    outcome: 'Incident dementia ICD-9/ICD-10 codes in claims',
+    keyFindings: [
+      'ASD without ID: adjusted HR 1.96 (95% CI 1.69–2.28)',
+      'Combined ASD (with and without ID): HR 2.62 (95% CI 2.40–2.85)',
+      'Mean age at dementia diagnosis approximately 49 years'
+    ],
+    relevance: 'Primary source for the ~2.6× dementia hazard ratio cited throughout this document. Medicaid-based, not Medicare FFS. The general Medicaid population comparator provides a benchmark but carries different SES and disability confounding than a disability-enrolled Medicare FFS comparator.'
+  },
+  {
+    id: 'vivanti2025',
+    doi: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC11696448/',
+    program: 'asd',
+    tag: 'core',
+    authors: 'Vivanti G, Lee W, Ventimiglia J, Tao S, Lyall K, Shea LL.',
+    year: 2025,
+    journal: 'JAMA Netw Open. 2025;8(1):e2453691.',
+    title: 'Prevalence of dementia among US adults with autism spectrum disorder',
+    headline: '8.03–8.88% 3-year dementia prevalence in Medicare-Medicaid dual-enrolled ASD adults',
+    stat: '8.03%',
+    statLabel: '3-yr prevalence (ASD without ID)',
+    ref: '[2]',
+    refId: 'ref-2',
+    design: 'Cross-sectional prevalence analysis',
+    data: 'Medicare–Medicaid linked (dual-enrolled), 2014–2016',
+    population: '114,582 autistic adults aged 30+ (dual-enrolled)',
+    outcome: 'Dementia prevalence; Bynum-standard ascertainment algorithm',
+    keyFindings: [
+      'ASD without ID: 3-year dementia prevalence 8.03%',
+      'ASD with ID: 3-year dementia prevalence 8.88%',
+      'No non-ASD comparison group — cannot estimate relative risk independently'
+    ],
+    relevance: 'Large-scale dual-enrolled Medicare–Medicaid cohort providing direct ascertainment and pool-size precedent. Does NOT provide a relative risk estimate (no comparison group). Key for ASD identification methods and outcome coding in dual-enrolled populations.'
+  },
+  {
+    id: 'nikahd2026',
+    doi: 'https://doi.org/10.1093/ageing/afag015',
+    program: 'asd',
+    tag: 'design',
+    authors: 'Nikahd M, Hyer M, Wolf B, et al.',
+    year: 2026,
+    journal: 'Age Ageing. 2026;55(2):afag015.',
+    title: 'Risk of dementia and related neurocognitive disorders among autistic and non-autistic older adults',
+    headline: 'Adjusted SHR 1.20 for neurocognitive disorders; SHR 1.46 for ASD+ID',
+    stat: '1.20',
+    statLabel: 'Adjusted SHR (ASD vs. non-ASD controls, 65+)',
+    ref: '[9]',
+    refId: 'ref-9',
+    design: 'Matched retrospective cohort (Fine–Gray competing risks)',
+    data: 'Medicare FFS 2013–2021',
+    population: '9,201 autistic adults aged 65+ matched 1:2 to 18,356 non-autistic controls',
+    outcome: 'Incident neurocognitive disorders (dementia and MCI)',
+    keyFindings: [
+      'Overall adjusted SHR 1.20 for any neurocognitive disorder',
+      'SHR 1.46 (95% CI 1.36–1.57) for ASD with intellectual disability',
+      'Age-enrolled Medicare comparison (65+) — demonstrates feasibility of that design'
+    ],
+    relevance: 'Establishes that a matched Medicare (65+) comparison can yield valid dementia risk estimates for autistic older adults. Published precedent for an age 65+ non-ASD comparator design. Note that Medicare enrollment at 65+ includes both age-entitled and disability-entitled beneficiaries; the comparator population in this study is not exclusively age-entitled. The lower SHR vs. Vivanti 2021 likely reflects the older enrollment age and the narrower comparator structure.'
+  },
+  {
+    id: 'karolinska2025',
+    doi: 'https://doi.org/10.1038/s41380-025-03045-6',
+    program: 'asd',
+    tag: 'core',
+    authors: 'Chang Z, Yao H, Sun S, et al.',
+    year: 2025,
+    journal: 'Mol Psychiatry. 2025. PMC12436158.',
+    title: 'Association between autism and dementia across generations: evidence from a family study of the Swedish population',
+    headline: 'Familial co-aggregation across generations: relatives of autistic individuals have elevated dementia risk (Swedish national registries)',
+    stat: '—',
+    statLabel: 'International registry validation',
+    ref: '[7]',
+    refId: 'ref-7',
+    design: 'Population-based family study',
+    data: 'Swedish national registries (complete-coverage)',
+    population: 'Full Swedish population; multi-generation linkage',
+    outcome: 'Dementia diagnosis in individuals with autism and their relatives',
+    keyFindings: [
+      'Autism associated with elevated dementia risk in the autistic individuals',
+      'Association extends across generations (family-based evidence)',
+      'Supports biological rather than purely ascertainment-based explanation for the association'
+    ],
+    relevance: 'Familial co-aggregation design: elevated dementia risk in relatives of autistic individuals, not a direct ASD-versus-non-ASD incidence comparison. The complete-coverage Swedish registries avoid enrollment-gap bias. Supports a biological or shared familial liability explanation for the ASD–dementia association, complementing direct-comparison US Medicare findings.'
+  },
+  {
+    id: 'dream2025',
+    doi: 'https://doi.org/10.1002/cpt.3592',
+    program: 'both',
+    tag: 'design',
+    authors: 'Desai RJ et al. (Gerhard T, co-author).',
+    year: 2025,
+    journal: 'Clin Pharmacol Ther. 2025;117(4):1039–1050.',
+    title: 'DREAM Study: Drug-related risk of ADRD in Medicare FFS (gabapentinoids)',
+    headline: 'Medicare FFS pharmacoepi design for ADRD outcome using ICD-10 claims',
+    stat: '—',
+    statLabel: 'Methods precedent for this study',
+    ref: '[5]',
+    refId: 'ref-5',
+    design: 'Active comparator new user cohort (Medicare FFS)',
+    data: 'Medicare FFS Parts A/B; ICD-10 era',
+    population: 'Medicare FFS beneficiaries; drug initiators vs. active comparator',
+    outcome: 'ADRD: 1 inpatient or 2 outpatient/carrier claims (no Part D component)',
+    keyFindings: [
+      'Demonstrates ADRD outcome ascertainment using ICD-10 diagnosis codes in Medicare Parts A/B',
+      'Structurally similar to Bynum-standard (no Part D medication component)',
+      'Co-authored by Dr. Tobias Gerhard — directly relevant team precedent'
+    ],
+    relevance: 'Dr. Gerhard\'s published Medicare FFS ADRD pharmacoepi study. The outcome ascertainment approach (1 inpatient or 2 outpatient claims; no Part D) is structurally similar to Bynum-standard and provides a published team precedent for the proposed analysis design. Exact qualifying code lists and observation windows need to be reconciled with Bynum.'
+  },
+  {
+    id: 'burke2014',
+    program: 'asd',
+    tag: 'methods',
+    authors: 'Burke JP, Jain A, Yang W, et al.',
+    year: 2014,
+    journal: 'Autism. 2014;18(3):321–330.',
+    title: 'Does a claims diagnosis of autism mean a true case?',
+    headline: 'PPV 87.4% for ≥2 ASD claims on separate dates (pediatric Medicaid validation)',
+    stat: '87.4%',
+    statLabel: 'Positive predictive value (≥2 claims)',
+    ref: '[1]',
+    refId: 'ref-1',
+    design: 'Diagnostic validation study (claims vs. EMR)',
+    data: 'Medicaid claims linked to electronic medical records',
+    population: 'Pediatric Medicaid enrollees with ASD diagnosis codes',
+    outcome: 'PPV of claims-based ASD ascertainment vs. clinical EMR confirmation',
+    keyFindings: [
+      'Single ASD claim: PPV substantially lower than 2-claim approach',
+      '≥2 claims on separate dates: PPV 87.4%',
+      'Foundational validation for the two-claim ASD ascertainment approach',
+      'Note: 30-day minimum interval between claims is a proposed operational requirement not explicitly specified in Burke 2014'
+    ],
+    relevance: 'Primary validation source for the two-claim ASD ascertainment approach used in this study. PPV of 87.4% represents the benchmark for cohort entry definition. The specific 30-day minimum separation between qualifying claims is a proposed operational requirement that should be confirmed against a published source.'
+  },
+  {
+    id: 'mccarthy2022',
+    doi: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC9159657/',
+    program: 'asd',
+    tag: 'methods',
+    authors: 'McCarthy EP, Chang CH, Germain-Fabos C, et al.',
+    year: 2022,
+    journal: 'J Gerontol A. 2022;77(6):1261–1271.',
+    title: 'Validation of claims algorithms to identify Alzheimer\'s disease and related dementias',
+    headline: 'Validation of Bynum-standard ADRD ascertainment in Medicare Parts A/B claims',
+    stat: '—',
+    statLabel: 'Bynum algorithm validation',
+    ref: '[4]',
+    refId: 'ref-4',
+    design: 'Algorithm validation study',
+    data: 'Medicare FFS Parts A/B linked to clinical assessments',
+    population: 'Medicare FFS beneficiaries (ICD-10 era, primarily)',
+    outcome: 'ADRD diagnosis via claims vs. clinical reference standard',
+    keyFindings: [
+      'Validates Bynum-standard: qualifying ADRD codes in Parts A/B FFS claims only',
+      'Path A: ≥1 inpatient, SNF, home health, or hospice claim',
+      'Path B: ≥2 carrier or outpatient claims at least 7 days apart',
+      'Part D medication claims not included in the Bynum algorithm'
+    ],
+    relevance: 'With Grodstein et al. 2022, constitutes the primary validation basis for Bynum-standard ADRD outcome ascertainment in this study. Confirms that the algorithm performs in ICD-10-era data, the relevant era for the proposed analysis.'
+  },
+  {
+    id: 'grodstein2022',
+    doi: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC9159666/',
+    program: 'asd',
+    tag: 'methods',
+    authors: 'Grodstein F, et al.',
+    year: 2022,
+    journal: 'Alzheimers Dement (Amst). 2022.',
+    title: 'Validity of Alzheimer\'s disease / ADRD diagnosis codes in Medicare FFS claims (Bynum algorithm)',
+    headline: 'ICD-10-era claims validation of Bynum ADRD algorithm vs. clinical assessment',
+    stat: '—',
+    statLabel: 'Bynum algorithm ICD-10 validation',
+    ref: '[3]',
+    refId: 'ref-3',
+    design: 'Algorithm validation study',
+    data: 'Medicare FFS Parts A/B (ICD-10 era)',
+    population: 'Medicare FFS beneficiaries evaluated against rigorous clinical assessment',
+    outcome: 'ADRD ascertainment accuracy (Bynum-standard codes in Parts A/B only)',
+    keyFindings: [
+      'Bynum-standard performance confirmed in predominantly ICD-10-era claims',
+      'Parts A/B FFS claims only — Part D medication claims not included',
+      'High specificity for clinical dementia diagnosis'
+    ],
+    relevance: 'Second primary validation study for Bynum-standard outcome ascertainment, using ICD-10-era data directly relevant to the proposed analysis period (2015+). Together with McCarthy et al. 2022, supports the ADRD outcome definition.'
+  },
+  {
+    id: 'evoke2026',
+    doi: 'https://doi.org/10.1016/S0140-6736(26)00459-9',
+    program: 'glp1',
+    tag: 'glp1rct',
+    authors: 'Cummings JL, Atri A, Sano M, et al.',
+    year: 2026,
+    journal: 'Lancet. 2026 Mar 19. doi:10.1016/S0140-6736(26)00459-9.',
+    title: 'EVOKE and EVOKE+: Oral semaglutide in early-stage symptomatic Alzheimer\'s disease',
+    headline: 'No slowing of cognitive decline in amyloid-confirmed symptomatic AD patients',
+    stat: 'Null',
+    statLabel: 'Phase 3 RCT result (oral semaglutide vs. placebo)',
+    ref: '—',
+    refId: null,
+    design: 'Phase 3 randomized controlled trial',
+    data: 'Multi-site RCT (EVOKE and EVOKE+ trials)',
+    population: 'Amyloid-confirmed early-stage symptomatic Alzheimer\'s disease patients',
+    outcome: 'Cognitive decline (CDR-SB and related endpoints)',
+    keyFindings: [
+      'Oral semaglutide did not slow cognitive decline in symptomatic AD patients',
+      'Amyloid confirmation required for enrollment (established disease, not prevention)',
+      'Raises question of whether GLP-1 RAs may have a prevention window earlier than symptomatic disease',
+      'Motivates the stage-of-disease hypothesis: benefit may require intervention before memory problems are established'
+    ],
+    relevance: 'The null EVOKE result in symptomatic patients is the central translational uncertainty motivating the GLP-1–prevention research program. The proposed ASD/ADRD study (Aim 3 of the Thome proposal) tests pharmacological prevention in a high-risk population — a distinct question from treating established symptomatic disease. Context for why identifying early prevention windows matters.'
+  },
+  {
+    id: 'dhanasekara2023',
+    program: 'both',
+    tag: 'context',
+    authors: 'Dhanasekara CS, Ancona D, Cortes L, et al.',
+    year: 2023,
+    journal: 'JAMA Pediatrics. 2023;177(3):248–257.',
+    title: 'Association between autism spectrum disorders and cardiometabolic diseases: a systematic review and meta-analysis',
+    headline: 'ASD adults carry approximately 2× the cardiometabolic burden of the general population',
+    stat: '~2×',
+    statLabel: 'Cardiometabolic disease burden vs. non-ASD',
+    ref: '—',
+    refId: null,
+    design: 'Systematic review and meta-analysis',
+    data: 'Multiple databases (published studies, various designs)',
+    population: 'ASD individuals vs. non-ASD comparison groups across studies',
+    outcome: 'Cardiometabolic conditions (obesity, T2DM, hypertension, dyslipidemia)',
+    keyFindings: [
+      'Substantially elevated rates of obesity, type 2 diabetes, and hypertension in ASD',
+      'Cardiometabolic burden approximately twice that of the general population',
+      'These are pathways directly addressed by GLP-1 receptor agonists'
+    ],
+    relevance: 'Provides mechanistic rationale for why ASD adults face elevated ADRD risk and why GLP-1 RAs may be particularly relevant in this population: the cardiometabolic risk pathways that GLP-1s address are disproportionately elevated in ASD. Supports the enriched proof-of-concept argument for Aim 3 of the Thome proposal.'
+  }
+,
+  {
+    id: 'tang2025',
+    doi: 'https://doi.org/10.1002/alz.70161',
+    tag: 'glp1obs',
+    program: 'glp1',
+    authors: 'Tang H, Lu Y, Chen Y, et al.',
+    year: 2025,
+    journal: 'Alzheimers Dement. 2025. doi:10.1002/alz.70161.',
+    title: 'Mediation analysis of the GLP-1 receptor agonist / ADRD association: body weight and HbA1c',
+    headline: 'Minimal metabolic mediation — most of the GLP-1/dementia association is not explained by weight or HbA1c changes',
+    stat: '~1.02',
+    statLabel: 'Natural indirect effect HR (metabolic pathway)',
+    ref: '—',
+    refId: null,
+    design: 'Mediation analysis (observational cohort)',
+    data: 'Medicare FFS claims (linked)',
+    population: 'N=22,908 T2D initiators; GLP-1 RA vs DPP-4i',
+    outcome: 'Mediation through change in body weight and HbA1c',
+    keyFindings: [
+      'Natural indirect effect HRs approximately 1.02 — metabolic pathway explains minimal share of the association',
+      'Most of the GLP-1 RA / ADRD association appears to operate through non-metabolic pathways',
+      'Direct methodological precedent for the mediation analysis planned in the Leumit Israel collaboration'
+    ],
+    limitations: 'Residual confounding possible; metabolic measures in claims are proxied. Weight and HbA1c changes may be measured with error.',
+    relevance: 'Direct precedent for the Thome mediation aim. The minimal mediation through measured BMI and HbA1c suggests that the GLP-1/ADRD association, if causal, likely reflects mechanisms beyond simple glycemic or weight control — relevant to both the T2D and the ASD/T2D subgroup analyses.'
+  },
+  {
+    id: 'wu2025',
+    tag: 'glp1obs',
+    program: 'glp1',
+    authors: 'Wu C, Bhatt MM, Chen Y, et al.',
+    year: 2025,
+    journal: 'Published 2025 (see citation for full reference).',
+    title: 'GLP-1 receptor agonist initiation and dementia risk: intention-to-treat versus on-treatment analysis',
+    headline: 'HR 0.95 ITT vs HR 0.79 during continuous treatment — treatment strategy materially changes effect estimate',
+    stat: '0.79',
+    statLabel: 'HR during continuous treatment (GLP-1 vs DPP-4i)',
+    ref: '—',
+    refId: null,
+    design: 'Active comparator new user cohort (observational)',
+    data: 'Claims or registry data',
+    population: 'T2D initiators; GLP-1 RA vs DPP-4i',
+    outcome: 'Incident dementia or ADRD',
+    keyFindings: [
+      'Intention-to-treat HR 0.95 — minimal effect in on-drug analysis',
+      'During-continuous-treatment HR 0.79 — substantially larger protective association',
+      'Illustrates high sensitivity to treatment strategy and follow-up definition',
+      'ITT estimates attenuate toward null as treatment discontinuation accumulates'
+    ],
+    limitations: 'On-treatment analyses can introduce informative censoring bias (sicker patients discontinue). ITT and on-treatment may estimate different causal estimands.',
+    relevance: 'Methodological caution for the Thome and Medicare analyses: the chosen follow-up strategy (ITT vs per-protocol) materially changes the HR and must be pre-specified and justified. On-treatment estimates may be more biologically plausible but are harder to identify causally.'
+  },
+  {
+    id: 'zhou2026',
+    tag: 'glp1obs',
+    program: 'glp1',
+    authors: 'Zhou Y, et al.',
+    year: 2026,
+    journal: 'Published 2026 (see citation for full reference).',
+    title: 'Comparative effectiveness of GLP-1 RAs, DPP-4 inhibitors, and SGLT2 inhibitors on dementia risk',
+    headline: 'GLP-1 vs DPP-4i HR 0.76; GLP-1 vs SGLT2i HR 1.53 — comparator choice materially changes interpretation',
+    stat: '0.76',
+    statLabel: 'HR vs DPP-4i comparator',
+    ref: '—',
+    refId: null,
+    design: 'Active comparator new user cohort (observational)',
+    data: 'Claims data',
+    population: 'T2D initiators; three-arm comparison',
+    outcome: 'Incident dementia',
+    keyFindings: [
+      'GLP-1 vs DPP-4i: HR 0.76 — directionally consistent with other GLP-1/DPP-4i studies',
+      'GLP-1 vs SGLT2i: HR 1.53 — loss of apparent advantage when SGLT2i is the comparator',
+      'SGLT2i itself may also be associated with lower dementia risk relative to DPP-4i',
+      'Comparator choice fundamentally changes which treatment effect is estimated'
+    ],
+    limitations: 'DPP-4i is a metabolically active comparator — not fully inert. SGLT2i class effects confound the comparison. Residual channeling bias possible.',
+    relevance: 'Directly supports the choice of DPP-4i as the active comparator in the Thome Aim 3 and the James Medicare preliminary analysis. If SGLT2i is the comparator, the GLP-1 apparent protective effect is substantially attenuated or reversed. DPP-4i comparator with IPTW weighting is the more defensible design.'
+  },
+  {
+    id: 'schechter2026',
+    tag: 'glp1obs',
+    program: 'glp1',
+    authors: 'Schechter G, et al.',
+    year: 2026,
+    journal: 'Published 2026 (see citation for full reference).',
+    title: 'GLP-1 receptor agonists and incident dementia in adults with T2D and baseline mild cognitive impairment',
+    headline: 'HR 0.74 (95% CI 0.57–0.95) for incident dementia in T2D adults with pre-existing MCI',
+    stat: '0.74',
+    statLabel: 'HR for incident dementia (T2D + MCI baseline)',
+    ref: '—',
+    refId: null,
+    design: 'Observational cohort (active comparator)',
+    data: 'Claims or health system data',
+    population: 'Adults with T2D and pre-existing MCI; GLP-1 RA vs DPP-4i',
+    outcome: 'Incident dementia',
+    keyFindings: [
+      'HR 0.74 (95% CI 0.57–0.95) — significant protective association in MCI-at-baseline cohort',
+      'Population began with existing cognitive impairment (MCI), not cognitively unimpaired adults',
+      'Does NOT directly inform the incident MCI outcome — different from HR 0.983 in the James Medicare preliminary data'
+    ],
+    limitations: 'MCI ascertainment in claims may be unreliable. Time since MCI onset not controlled. Cannot distinguish prevention from slowing of progression in MCI-to-dementia transition.',
+    relevance: 'Important for Thome Aim 1 baseline MCI interaction hypothesis. However: this study examines MCI-at-baseline converting to dementia, while the preliminary Medicare finding of HR 0.983 concerns incident MCI in cognitively unimpaired adults. These are different clinical questions requiring different analytic approaches. Do not treat as replications of each other.'
+  },
+  {
+    id: 'siqueira2026',
+    tag: 'glp1rct',
+    program: 'glp1',
+    authors: 'Siqueira JS, et al.',
+    year: 2026,
+    journal: 'Published October 15, 2026 (see citation for full reference).',
+    title: 'GLP-1 receptor agonists and cognitive outcomes in AD/MCI: a meta-analysis of randomized trials',
+    headline: 'Pooled CDR-SB: 0.09 (95% CI −0.10 to 0.28) — no significant effect on cognition or progression across 7 RCTs',
+    stat: 'Null',
+    statLabel: 'Meta-analysis of 7 RCTs, N=4,132',
+    ref: '—',
+    refId: null,
+    design: 'Systematic review and meta-analysis of randomized controlled trials',
+    data: 'Seven published RCTs',
+    population: 'N=4,132; established AD or MCI patients enrolled in randomized trials',
+    outcome: 'Cognitive outcomes (CDR-SB and related endpoints)',
+    keyFindings: [
+      'Pooled CDR-SB effect: 0.09 (95% CI −0.10 to 0.28) — not statistically significant',
+      'No significant overall improvement in cognition or disease progression across 7 RCTs',
+      'Updates and extends the EVOKE/EVOKE+ null RCT evidence to a broader randomized evidence base',
+      'All included trials enrolled symptomatic AD or MCI patients — not cognitively unimpaired adults'
+    ],
+    limitations: 'All trials test symptomatic patients, not primary prevention. CDR-SB as shared endpoint may not capture all dimensions of cognitive change. Trial populations may differ from real-world T2D clinical practice.',
+    relevance: 'Confirms that randomized trial evidence, taken as a whole, does not support GLP-1 RAs for treating established symptomatic AD or MCI. Strengthens the hypothesis that any benefit must be sought earlier in the disease course — the prevention window hypothesis motivating the Thome GLP-1 program. This null RCT evidence (Siqueira 2026 + EVOKE) is the contextual argument for prevention-focused observational work.'
+  }
+];
+
 const PATIENTS = [
   {
     label: 'Classic autism (F84.0)',
@@ -700,7 +1354,7 @@ const PATIENTS = [
       { s: 0,  e: 26, cls: 'src-med',  tip: 'Medicaid via SSI / HCBS waiver' },
       { s: 26, e: 80, cls: 'src-dual', tip: 'Dual enrolled: Medicare FFS + Medicaid' }
     ],
-    info: '<b>Classic autism (F84.0) — disability pathway</b>Enters Medicaid in childhood via SSI. Following SSDI award and the 24-month Medicare waiting period, this patient becomes dual-enrolled at approximately age 26. Medicare FFS then captures the full dementia risk window from ages 50 to 80. This is the dominant trajectory for ASD adults in Medicare, representing the core study cohort. Estimated 90,000 to 160,000 individuals in FFS by 2020 to 2023.<sup><a href="#ref-2" class="cref">[2]</a></sup><br><br><b>Data source comparison:</b> <i>Medicare FFS only</i> — this patient is still fully captured from age 26 onward; dual enrollees appear in Part A and B claims just like FFS-only beneficiaries. The Medicaid childhood years (ages 0 to 26) are invisible, but the entire dementia risk window is covered. <i>Medicaid only</i> — visible through childhood and retained during dual enrollment, but Medicaid claims are secondary payer for most services, limiting clinical detail. <i>MarketScan only</i> — never observable; this patient never holds commercial insurance.'
+    info: '<b>Classic autism (F84.0) — disability pathway</b>Enters Medicaid in childhood via SSI. Following SSDI award and the 24-month Medicare waiting period, this patient becomes dual-enrolled at approximately age 26. Medicare FFS then captures the full dementia risk window from ages 50 to 80. This is the dominant trajectory for ASD adults in Medicare, representing the core study cohort. Provisional estimate: 90,000 to 160,000 individuals in FFS by 2020 to 2023.<sup><a href="#ref-2" class="cref">[2]</a></sup><br><br><b>Data source comparison:</b> <i>Medicare FFS only</i> — this patient is still fully captured from age 26 onward; dual enrollees appear in Part A and B claims just like FFS-only beneficiaries. The Medicaid childhood years (ages 0 to 26) are invisible, but the entire dementia risk window is covered. <i>Medicaid only</i> — visible through childhood and retained during dual enrollment, but Medicaid claims are secondary payer for most services, limiting clinical detail. <i>MarketScan only</i> — never observable; this patient never holds commercial insurance.'
   },
   {
     label: 'Asperger syndrome (F84.5)',
@@ -720,7 +1374,7 @@ const PATIENTS = [
       { s: 0,  e: 28, cls: 'src-med',  tip: 'Medicaid via SSI / HCBS DD waiver' },
       { s: 28, e: 80, cls: 'src-dual', tip: 'Dual enrolled: Medicare FFS + Medicaid' }
     ],
-    info: '<b>ASD + intellectual disability — disability pathway</b>Similar trajectory to F84.0. HCBS developmental disability waivers often delay the formal SSDI application because state Medicaid provides equivalent support earlier. When SSDI is awarded and the 24-month wait completes, Medicare dual enrollment begins, and the full dementia risk window is captured in FFS. Down syndrome (Q90.x) is typically excluded from this cohort given its independent and substantially earlier dementia risk trajectory. Estimated 100,000 to 190,000 in FFS.<br><br><b>Data source comparison:</b> <i>Medicare FFS only</i> — fully captured from dual enrollment onward (approximately age 28); the dementia risk window is complete. The earlier Medicaid-only years are not visible, but this rarely affects the analysis. <i>Medicaid only</i> — continuous coverage from childhood through dual enrollment, but limited to secondary-payer claims during the Medicare period. <i>MarketScan only</i> — never observable; competitive employment is uncommon in this group and commercial insurance is rarely held.'
+    info: '<b>ASD + intellectual disability — disability pathway</b>Similar trajectory to F84.0. HCBS developmental disability waivers often delay the formal SSDI application because state Medicaid provides equivalent support earlier. When SSDI is awarded and the 24-month wait completes, Medicare dual enrollment begins, and the full dementia risk window is captured in FFS. Down syndrome (Q90.x) is typically excluded from this cohort given its independent and substantially earlier dementia risk trajectory. Provisional estimate: 100,000 to 190,000 in FFS.<br><br><b>Data source comparison:</b> <i>Medicare FFS only</i> — fully captured from dual enrollment onward (approximately age 28); the dementia risk window is complete. The earlier Medicaid-only years are not visible, but this rarely affects the analysis. <i>Medicaid only</i> — continuous coverage from childhood through dual enrollment, but limited to secondary-payer claims during the Medicare period. <i>MarketScan only</i> — never observable; competitive employment is uncommon in this group and commercial insurance is rarely held.'
   },
   {
     label: 'Late-diagnosed ASD',
@@ -748,7 +1402,7 @@ const COMPARISONS = [
     n: 'Estimated pool: 8.7 to 8.9 million<sup><a href="#ref-8" class="cref">[8]</a></sup>',
     scores: { 'Pool size': 5, 'Pathway match': 5, 'SES match': 3, 'Literature precedent': 4, 'Comorbidity control': 4 },
     pros: [
-      'Same SSDI Medicare enrollment route as more than 90% of the ASD cohort — the single most important matching criterion',
+      'Same SSDI Medicare enrollment route as more than 90% of the ASD cohort (provisional estimate) — the single most important matching criterion',
       'Large pool supports 1:10 matching ratios or propensity score weighting across all ASD subgroups',
       'Controls for the disability selection effect on health trajectory, healthcare utilization, and longevity'
     ],
@@ -814,6 +1468,7 @@ const COMPARISONS = [
     pros: [
       'Largest available pool in all of Medicare; no feasibility constraints for any matching design',
       'The standard reference population in virtually all Medicare dementia incidence and ADRD prevalence literature',
+      'Nikahd et al. (2026) demonstrates that a matched Medicare older-adult comparison yields valid dementia risk estimates for ASD adults aged 65+ (adjusted SHR 1.20 overall; SHR 1.46 for ASD+ID), establishing published precedent for this design<sup><a href="#ref-9" class="cref">[9]</a></sup>',
       'Fully validated for ADRD ascertainment using the Bynum algorithm across multiple prior publications<sup><a href="#ref-2" class="cref">[2]</a><a href="#ref-3" class="cref">[3]</a><a href="#ref-4" class="cref">[4]</a></sup>'
     ],
     cons: [
@@ -987,6 +1642,7 @@ const COMPARISONS = [
         <div class="pc cons"><h4>Cons</h4><ul>${consHtml}</ul></div>
       </div>`;
 
+
     grid.appendChild(card);
   });
 })();
@@ -1003,4 +1659,95 @@ const COMPARISONS = [
   window.addEventListener('scroll', update, { passive: true });
   update();
 })();
+
+/* ── RENDER KEY STUDIES ─────────────────────────────────────── */
+(function(){
+  const tagMeta = STUDY_TAGS;
+
+  // Build legend
+  const leg = document.getElementById('studies-legend');
+  if (leg) {
+    Object.values(tagMeta).forEach(t => {
+      const s = document.createElement('span');
+      s.className = t.cls; s.textContent = t.label;
+      leg.appendChild(s);
+    });
+  }
+
+  const grid = document.getElementById('studies-grid');
+  if (!grid) return;
+
+  STUDIES.forEach(st => {
+    const tm = tagMeta[st.tag];
+    const card = document.createElement('div');
+    card.className = 'study-card';
+    card.id = 'sc-' + st.id;
+    card.dataset.program = st.program || 'asd';
+
+    const findingsList = st.keyFindings.map(f => `<li>${f}</li>`).join('');
+    const doiLink = st.doi ? `<a href="${st.doi}" target="_blank" rel="noopener" class="sc-ref-link">Full text / DOI ↗</a>` : '';
+    const refLink = st.refId
+      ? `<a href="#${st.refId}" class="sc-ref-link">Reference ${st.ref} in this document ↗</a>${doiLink ? ' &nbsp;|&nbsp; ' + doiLink : ''}`
+      : (doiLink || '<em>Not in current reference list</em>');
+
+    card.innerHTML = `
+      <div class="sc-head">
+        <span class="sc-tag ${tm.cls}">${tm.label}</span>
+        <div class="sc-stat-row">
+          <div class="sc-stat-val">${st.stat}</div>
+          <div class="sc-stat-lbl">${st.statLabel}</div>
+        </div>
+        <div class="sc-title">${st.authors} ${st.year}</div>
+        <div class="sc-meta">${st.journal}</div>
+      </div>
+      <button class="sc-expand-btn" aria-expanded="false" aria-controls="det-${st.id}">
+        <span>${st.headline}</span>
+        <span class="sc-chevron">▼</span>
+      </button>
+      <div class="sc-detail" id="det-${st.id}" role="region">
+        <h4>Study Design</h4>
+        <div class="sc-design-row">
+          <div class="sc-design-item"><label>Design</label><span>${st.design}</span></div>
+          <div class="sc-design-item"><label>Data</label><span>${st.data}</span></div>
+          <div class="sc-design-item"><label>Population</label><span>${st.population}</span></div>
+          <div class="sc-design-item"><label>Outcome</label><span>${st.outcome}</span></div>
+        </div>
+        <h4>Key Findings</h4>
+        <ul>${findingsList}</ul>
+        ${st.limitations ? `<h4>Limitations</h4><p>${st.limitations}</p>` : ''}
+        <h4>Relevance to This Study</h4>
+        <p class="sc-relevance">${st.relevance}</p>
+        <p style="margin-top:8px;">${refLink}</p>
+      </div>`;
+
+    const btn = card.querySelector('.sc-expand-btn');
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      const open = card.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open);
+    });
+    card.addEventListener('click', () => {
+      const open = card.classList.toggle('open');
+      card.querySelector('.sc-expand-btn').setAttribute('aria-expanded', open);
+    });
+
+    grid.appendChild(card);
+  });
+
+  /* Program filters */
+  const filterBar = document.getElementById('studies-filters');
+  if (filterBar) {
+    filterBar.addEventListener('click', e => {
+      const btn = e.target.closest('[data-filter]');
+      if (!btn) return;
+      filterBar.querySelectorAll('.filter-chip').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const sel = btn.dataset.filter;
+      document.querySelectorAll('.study-card').forEach(c => {
+        c.hidden = !(sel === 'all' || c.dataset.program === sel || (sel === 'both' && c.dataset.program === 'both'));
+      });
+    });
+  }
+})();
+
 </script>
