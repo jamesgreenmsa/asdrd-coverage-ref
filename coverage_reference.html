@@ -470,7 +470,7 @@ a.prog-card, a.prog-library { text-decoration: none; display: block; color: inhe
 }
 .prog-card:hover { border-color: var(--blue); box-shadow: 0 2px 10px rgba(0,0,0,0.08); }
 .prog-card--nih   { border-left: 3px solid var(--navy); }
-.prog-card--thome { border-left: 3px solid var(--c-nor); }
+.prog-card--related { border-left: 3px solid var(--c-nor); }
 .prog-card-icon { font-size: 1.5em; margin-bottom: 8px; display: block; }
 .prog-card-name {
   font-size: 1.02em; font-weight: 800; color: var(--fg);
@@ -660,11 +660,11 @@ section{scroll-margin-top:72px}
 .sc-eyebrow{font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--blue)}
 .sc-hero h1{font-size:clamp(28px,4.4vw,44px);letter-spacing:-.045em;line-height:1.13;margin:12px 0 12px}
 .sc-hero>p{max-width:700px;font-size:15px;color:var(--fg2);margin:0 0 24px}
-.sc-programs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:20px 0}
+.sc-programs{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:14px;margin:20px 0}
 .sc-hublink{display:flex;flex-direction:column;gap:9px;min-height:220px;border:1px solid var(--border);border-left:5px solid var(--navy);background:var(--surface2);padding:20px;border-radius:12px;text-decoration:none;color:var(--fg);transition:transform .18s,box-shadow .18s,border-color .18s}
-.sc-hublink--thome{border-left-color:var(--c-nor)}
+.sc-hublink--related{border-left-color:var(--c-nor);background:var(--surface)}
 .sc-hublink svg{color:var(--blue)}
-.sc-hublink--thome svg{color:var(--c-nor)}
+.sc-hublink--related svg{color:var(--c-nor)}
 .sc-hublink:hover,.sc-cta:hover,.sc-path:hover{transform:translateY(-2px);box-shadow:0 9px 26px rgba(30,62,100,.11);border-color:var(--blue)}
 .sc-hublink strong{font-size:18px}
 .sc-hublink span{color:var(--fg2);font-size:13px}
@@ -743,18 +743,18 @@ section{scroll-margin-top:72px}
 </style></head><body>
 <header class="hdr">
 <h1>ASD, Cognitive Aging &amp; ADRD</h1>
-<p>Shared research evidence and study design reference · NIH ASD/ADRD Program + Thome GLP-1 Program · October 2026</p>
+<p>NIH ASD/ADRD study-design reference · Related GLP-1/ADRD evidence · October 2026</p>
 </header>
-<nav class="nav" id="top-nav"><a href="#overview">Overview</a><a href="#story">Guided story</a><a href="#timeline">Full swim lanes</a><a href="#population">US population</a><a href="#comparison">Comparators</a><a href="#approach">ADRD methods</a><a href="#thome">Thome</a><a href="#studies">Evidence library</a><a href="#decisions">Decisions</a><a href="#refs">References</a></nav>
+<nav class="nav" id="top-nav"><a href="#overview">Overview</a><a href="#story">Guided story</a><a href="#timeline">Full swim lanes</a><a href="#population">US population</a><a href="#comparison">Comparators</a><a href="#approach">ADRD methods</a><a href="#related-glp1">Related GLP-1</a><a href="#studies">Evidence library</a><a href="#decisions">Decisions</a><a href="#refs">References</a></nav>
 <div class="wrap">
 <section aria-label="Research programs and navigation" id="overview">
 <div class="sc-hero">
 <div class="sc-eyebrow">Working research reference · October 2026</div>
 <h1>ASD, Cognitive Aging &amp; ADRD</h1>
-<p>Two connected research programs. One shared evidence base. Follow the guided US study-design story, explore GLP-1 prevention questions, or go straight to the technical tools.</p>
+<p>A guided reference for the funded NIH ASD/ADRD study, with a separate collection of related GLP-1/ADRD research questions. Follow the US design story or go straight to the technical tools.</p>
 <div class="sc-programs">
 <a aria-label="Follow the NIH ASD and ADRD research design story" class="sc-hublink" href="#story"><svg aria-hidden="true" fill="none" height="52" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 48 48" width="52"><path d="M24 12a8 8 0 0 0-14-4 8 8 0 0 0-5 12 9 9 0 0 0 1 16 8 8 0 0 0 13 6l5-4V12Z"></path><path d="M24 12a8 8 0 0 1 14-4 8 8 0 0 1 5 12 9 9 0 0 1-1 16 8 8 0 0 1-13 6l-5-4V12Z"></path><path d="M15 15c-4 0-6 3-6 6m12 7c-5 0-7 3-7 7m20-20c4 0 6 3 6 6m-12 7c5 0 7 3 7 7M24 12v26"></path></svg><strong>ASD / ADRD Risk</strong><span>Who develops diagnosed dementia, when, and how do our data allow us to measure that risk?</span><small>NIH RESEARCH PROGRAM · Explore story →</small></a>
-<a aria-label="Explore the Thome GLP-1 prevention research program" class="sc-hublink sc-hublink--thome" href="#thome"><svg aria-hidden="true" fill="none" height="52" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.7" viewbox="0 0 48 48" width="52"><path d="M37 9a10 10 0 0 0-14.1 0L9 22.9A10 10 0 0 0 23.1 37L37 23.1A10 10 0 0 0 37 9Z"></path><path d="m16 16 16 16"></path></svg><strong>GLP-1 &amp; Prevention</strong><span>Could treatment initiation modify dementia risk, through which measured pathways, and for whom?</span><small>THOME RESEARCH PROGRAM · Explore aims →</small></a>
+<a aria-label="Explore separate GLP-1 and dementia research questions" class="sc-hublink sc-hublink--related" href="#related-glp1"><svg aria-hidden="true" fill="none" height="52" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.7" viewbox="0 0 48 48" width="52"><path d="M37 9a10 10 0 0 0-14.1 0L9 22.9A10 10 0 0 0 23.1 37L37 23.1A10 10 0 0 0 37 9Z"></path><path d="m16 16 16 16"></path></svg><strong>Related GLP-1 / ADRD Research</strong><span>Separate exploratory questions about drug initiation, disease stage, mechanisms and dementia risk, not part of the funded NIH study.</span><small>SEPARATE RESEARCH QUESTIONS · Explore context →</small></a>
 </div>
 <a aria-label="Open shared evidence library" class="sc-library-link" href="#studies"><svg aria-hidden="true" fill="none" height="43" stroke="currentColor" stroke-linejoin="round" stroke-width="2.7" viewbox="0 0 48 48" width="43"><path d="M24 12c-6-4-13-4-19-2v27c8-2 14-1 19 3 5-4 11-5 19-3V10c-6-2-13-2-19 2Z"></path><path d="M24 12v28"></path></svg><div><strong>Shared Evidence Library →</strong><span>Trials · Observational studies · Methods validation · Research gaps</span></div></a>
 <div class="sc-cta-row"><a class="sc-cta" href="#story">Follow the US design story <span aria-hidden="true">↓</span></a><a class="sc-cta sc-cta--secondary" href="#timeline">Skip to the full tools ↗</a></div>
@@ -794,11 +794,11 @@ section{scroll-margin-top:72px}
 <div class="sc-role sc-role--med"><div class="sc-role-k">Possible primary older-adult analysis</div><h3>Medicare FFS</h3><p>Well-established claims approaches to ADRD ascertainment, with substantial older-adult event burden. Can also include beneficiaries originally entitled through disability before age 65.</p><strong>Feasibility question</strong><p>Can we create comparable autistic and non-autistic groups with sufficient observable history and validated outcome definitions?</p></div>
 <div class="sc-role sc-role--market"><div class="sc-role-k">Earlier-adulthood extension</div><h3>MarketScan</h3><p>Commercially insured adults, including many under 65, can contribute earlier observation windows. Enrollment may be interrupted and dementia events may be rare.</p><strong>Feasibility question</strong><p>How many ASD adults have eligible follow-up and incident ADRD events, including by age and treatment status?</p></div>
 <div class="sc-role sc-role--medicaid"><div class="sc-role-k">Complementary population</div><h3>Selected Medicaid states</h3><p>Could improve representation of adults with intellectual disability or greater support needs. Coverage and coding quality vary across states and programs.</p><strong>Feasibility question</strong><p>Which states and years offer adequate ASD/ID ascertainment, eligibility information, and observable dementia outcomes?</p></div>
-</div><div class="sc-note">These are distinct target populations. Comparing their results requires attention to entitlement, age, Medicaid/Medicare Advantage coverage, treatment availability, coding completeness and selection bias; numerical estimates are not automatically transportable.</div><div class="sc-cta-row"><a class="sc-cta sc-cta--small" href="#comparison">Evaluate comparators →</a><a class="sc-cta sc-cta--secondary sc-cta--small" href="#decisions">See unresolved decisions →</a></div></section><section aria-label="Thome GLP-1 and prevention research program" class="sc-section" id="thome"><div class="sc-eyebrow">Related but distinct research pathway</div><h2>GLP-1 initiation and dementia prevention</h2><p>The Thome project asks whether the observational association between GLP-1 receptor agonist initiation and lower incident dementia risk varies by clinical stage, measured metabolic pathways, genetics or neurodevelopmental context. The EVOKE/EVOKE+ trials evaluated progression of established symptomatic Alzheimer's disease, not dementia prevention among cognitively unimpaired adults.</p><div class="sc-aims">
-<div class="sc-aim"><div class="sc-role-k">Aim 1</div><strong>Clinical stage and mediation</strong><p>Medicare active-comparator analysis of dementia incidence, cognitive-stage differences and sex; Leumit measurements of weight and HbA1c to investigate metabolic mediation.</p></div>
-<div class="sc-aim"><div class="sc-role-k">Aim 2</div><strong>Alzheimer's polygenic risk</strong><p>All of Us whole-genome sequencing to evaluate whether AD genetic susceptibility modifies observed GLP-1/ADRD associations.</p></div>
-<div class="sc-aim"><div class="sc-role-k">Aim 3</div><strong>Autism-focused pharmacoepidemiology</strong><p>Proposed MarketScan active-comparator, new-user analysis among autistic adults with type 2 diabetes, subject to data access, cohort feasibility and outcome events.</p></div>
-</div><div class="sc-note">The Thome program should not be interpreted as a prespecified aim of the NIH ASD/ADRD risk grant. Observational associations do not establish treatment prevention effects. Aim 3 requires its own ASD, diabetes, treatment-eligibility and follow-up feasibility checks.</div><div class="sc-cta-row"><a class="sc-cta sc-cta--small" href="#studies" id="thome-evidence-link">Open related evidence →</a><a class="sc-cta sc-cta--secondary sc-cta--small" href="#overview">Back to both programs ↑</a></div></section><section aria-label="Research design decision checklist" class="sc-section" id="decisions"><div class="sc-eyebrow">Working design ledger · To be reviewed by the team</div><h2>What is proposed, what needs data, and what remains open?</h2><p>These items separate currently discussed directions from validated evidence and final protocol decisions. No selections below should be treated as investigator approval.</p><div class="sc-decisions">
+</div><div class="sc-note">These are distinct target populations. Comparing their results requires attention to entitlement, age, Medicaid/Medicare Advantage coverage, treatment availability, coding completeness and selection bias; numerical estimates are not automatically transportable.</div><div class="sc-cta-row"><a class="sc-cta sc-cta--small" href="#comparison">Evaluate comparators →</a><a class="sc-cta sc-cta--secondary sc-cta--small" href="#decisions">See unresolved decisions →</a></div></section><section aria-label="Related GLP-1 and prevention research program" class="sc-section" id="related-glp1"><div class="sc-eyebrow">Separate exploratory research · Not an NIH grant aim</div><h2>Related GLP-1 and dementia questions</h2><p>Separate research ideas have examined whether the observed association between GLP-1 receptor agonist initiation and lower incident dementia risk varies by clinical stage, measured metabolic changes, genetic susceptibility, or autism status. These ideas arose outside the funded NIH ASD/ADRD risk study and are provided for scientific context, not as another funded research program. EVOKE/EVOKE+ studied progression in symptomatic Alzheimer's disease rather than dementia prevention in cognitively unimpaired adults.</p><div class="sc-aims">
+<div class="sc-aim"><div class="sc-role-k">Question 1 · Exploratory</div><strong>Clinical stage and mediation</strong><p>Medicare active-comparator analysis of dementia incidence, cognitive-stage differences and sex; Leumit measurements of weight and HbA1c to investigate metabolic mediation.</p></div>
+<div class="sc-aim"><div class="sc-role-k">Question 2 · Exploratory</div><strong>Alzheimer's polygenic risk</strong><p>All of Us whole-genome sequencing to evaluate whether AD genetic susceptibility modifies observed GLP-1/ADRD associations.</p></div>
+<div class="sc-aim"><div class="sc-role-k">Question 3 · Exploratory</div><strong>Autism-focused pharmacoepidemiology</strong><p>Proposed MarketScan active-comparator, new-user analysis among autistic adults with type 2 diabetes, subject to data access, cohort feasibility and outcome events.</p></div>
+</div><div class="sc-note">These are separate, exploratory research directions, not aims of the funded NIH ASD/ADRD grant or deliverables of a submitted or awarded fellowship. Observational associations do not establish treatment prevention effects. Any ASD/T2D GLP-1 analysis would require separate feasibility checks for ASD ascertainment, treatment eligibility, usable follow-up and incident ADRD events.</div><div class="sc-cta-row"><a class="sc-cta sc-cta--small" href="#studies" id="related-glp1-evidence-link">Open related evidence →</a><a class="sc-cta sc-cta--secondary sc-cta--small" href="#overview">Back to the NIH study overview ↑</a></div></section><section aria-label="Research design decision checklist" class="sc-section" id="decisions"><div class="sc-eyebrow">Working design ledger · To be reviewed by the team</div><h2>What is proposed, what needs data, and what remains open?</h2><p>These items separate currently discussed directions from validated evidence and final protocol decisions. No selections below should be treated as investigator approval.</p><div class="sc-decisions">
 <div class="sc-decision"><h3>Proposed directions</h3><ul><li>Explore Medicare FFS as the primary older-adult US analysis.</li><li>Evaluate age-aligned, disability-entitled and dual-eligible comparisons in relation to the target estimand.</li><li>Explore MarketScan and selected Medicaid states as complementary cohorts.</li></ul></div>
 <div class="sc-decision"><h3>Needs empirical assessment</h3><ul><li>ASD cohort and incident ADRD event counts by age, coverage and data source.</li><li>Attrition under alternative lookback, FFS eligibility and washout rules.</li><li>Medicaid state/year availability, coding completeness and ID classification.</li></ul></div>
 <div class="sc-decision"><h3>Open methodological decisions</h3><ul><li>ASD diagnosis algorithm and ICD-9/ICD-10 cross-era handling.</li><li>Time zero, prevalence exclusion, gaps and mortality competing risks.</li><li>Bynum versus DREAM coding, care settings, spacing and sensitivity analyses.</li></ul></div>
@@ -846,7 +846,7 @@ section{scroll-margin-top:72px}
 <span class="filter-label">Show:</span>
 <button class="filter-chip active" data-filter="all">All studies</button>
 <button class="filter-chip" data-filter="asd">NIH ASD / ADRD</button>
-<button class="filter-chip" data-filter="glp1">Thome GLP-1</button>
+<button class="filter-chip" data-filter="glp1">Related GLP-1</button>
 <button class="filter-chip" data-filter="both">Shared</button>
 </div>
 <div class="studies-legend" id="studies-legend"></div>
@@ -975,7 +975,7 @@ section{scroll-margin-top:72px}
               <em>Alzheimers Dement.</em> 2025.
               doi:10.1002/alz.70161
             </div>
-<div class="ref-note">T2D new-user cohort (n = 22,908; GLP-1 RA vs DPP-4i; Medicare FFS). Natural indirect effects through body weight and HbA1c ≈1.02 — metabolic pathways explain minimal share of the GLP-1/ADRD association. Precedent for the Thome mediation aim; motivates non-metabolic pathway investigation.</div>
+<div class="ref-note">T2D new-user cohort (n = 22,908; GLP-1 RA vs DPP-4i; Medicare FFS). Natural indirect effects through body weight and HbA1c ≈1.02 — metabolic pathways explain minimal share of the GLP-1/ADRD association. Relevant background for an exploratory metabolic mediation question; motivates further investigation of pathways not captured by measured changes.</div>
 </div>
 <div class="ref-entry" id="ref-12">
 <div class="ref-cit">
@@ -983,7 +983,7 @@ section{scroll-margin-top:72px}
               GLP-1 receptor agonist initiation and dementia risk: intention-to-treat versus on-treatment analysis.
               <em>Published 2025.</em>
 </div>
-<div class="ref-note">Active comparator new-user cohort; GLP-1 RA vs DPP-4i. ITT HR 0.95; during-continuous-treatment HR 0.79. Treatment strategy materially changes the effect estimate. Pre-specification of the follow-up estimand is a key design decision for the Thome and James Medicare analyses.</div>
+<div class="ref-note">Active comparator new-user cohort; GLP-1 RA vs DPP-4i. ITT HR 0.95; during-continuous-treatment HR 0.79. Treatment strategy materially changes the effect estimate. Pre-specification of the follow-up estimand is a key design decision for any related Medicare GLP-1 analysis.</div>
 </div>
 <div class="ref-entry" id="ref-13">
 <div class="ref-cit">
@@ -992,7 +992,7 @@ section{scroll-margin-top:72px}
               <em>Diabetes Obes Metab.</em> 2026.
               doi:10.1111/dom.70384
             </div>
-<div class="ref-note">Three-arm active comparator study. GLP-1 vs DPP-4i: HR 0.76; GLP-1 vs SGLT2i: HR 1.53. Comparator choice fundamentally changes the apparent treatment effect. Supports DPP-4i as the pre-specified active comparator for the Thome and James Medicare analyses.</div>
+<div class="ref-note">Three-arm active comparator study. GLP-1 vs DPP-4i: HR 0.76; GLP-1 vs SGLT2i: HR 1.53. Comparator choice fundamentally changes the apparent treatment effect. Provides rationale for examining DPP-4i as an active comparator in a separate GLP-1/ADRD analysis; comparator choice still requires scientific justification.</div>
 </div>
 <div class="ref-entry" id="ref-14">
 <div class="ref-cit">
@@ -1001,7 +1001,7 @@ section{scroll-margin-top:72px}
               <em>Alzheimers Dement Transl Res Clin Interv.</em> 2026.
               doi:10.1002/trc2.70315
             </div>
-<div class="ref-note">Active comparator cohort in T2D + pre-existing MCI; GLP-1 RA vs DPP-4i. HR 0.74 (95% CI 0.57–0.95). Important for Thome Aim 1 interaction hypothesis. However: this study examines MCI-to-dementia transition, not incident MCI in cognitively unimpaired adults — a distinct clinical question from the HR 0.983 in the James Medicare preliminary data.</div>
+<div class="ref-note">Active comparator cohort in T2D + pre-existing MCI; GLP-1 RA vs DPP-4i. HR 0.74 (95% CI 0.57–0.95). Relevant to an exploratory question about baseline MCI and later dementia. However: this study examines MCI-to-dementia transition, not incident MCI in cognitively unimpaired adults — a distinct clinical question from the HR 0.983 in the James Medicare preliminary data.</div>
 </div>
 <div class="ref-entry" id="ref-15">
 <div class="ref-cit">
@@ -1009,7 +1009,7 @@ section{scroll-margin-top:72px}
               GLP-1 receptor agonists and cognitive outcomes in Alzheimer's disease and mild cognitive impairment: a systematic review and meta-analysis of randomized controlled trials.
               <em>Published October 2026.</em>
 </div>
-<div class="ref-note">Meta-analysis of 7 RCTs (n = 4,132; symptomatic AD or MCI). Pooled CDR-SB effect: 0.09 (95% CI −0.10 to 0.28) — not statistically significant. Together with EVOKE [10], confirms null RCT evidence for treating established symptomatic disease and strengthens the prevention-window hypothesis motivating the Thome observational program.</div>
+<div class="ref-note">Meta-analysis of 7 RCTs (n = 4,132; symptomatic AD or MCI). Pooled CDR-SB effect: 0.09 (95% CI −0.10 to 0.28) — not statistically significant. Together with EVOKE [10], confirms null RCT evidence for treating established symptomatic disease and raises questions about whether observational associations differ by disease stage.</div>
 </div>
 </div>
 </div>
@@ -1257,7 +1257,7 @@ const STUDIES = [
       'Raises question of whether GLP-1 RAs may have a prevention window earlier than symptomatic disease',
       'Motivates the stage-of-disease hypothesis: benefit may require intervention before memory problems are established'
     ],
-    relevance: 'The null EVOKE result in symptomatic patients is the central translational uncertainty motivating the GLP-1–prevention research program. The proposed ASD/ADRD study (Aim 3 of the Thome proposal) tests pharmacological prevention in a high-risk population — a distinct question from treating established symptomatic disease. Context for why identifying early prevention windows matters.'
+    relevance: 'The null EVOKE result in symptomatic patients is the central translational uncertainty motivating the GLP-1–prevention research program. A separate, exploratory ASD/T2D analysis of GLP-1 initiation and incident ADRD could examine an earlier disease stage, but it would not establish prevention or treatment effects. This differs from studying progression of symptomatic AD.'
   },
   {
     id: 'dhanasekara2023',
@@ -1281,7 +1281,7 @@ const STUDIES = [
       'Cardiometabolic burden approximately twice that of the general population',
       'These are pathways directly addressed by GLP-1 receptor agonists'
     ],
-    relevance: 'Provides mechanistic rationale for why ASD adults face elevated ADRD risk and why GLP-1 RAs may be particularly relevant in this population: the cardiometabolic risk pathways that GLP-1s address are disproportionately elevated in ASD. Supports the enriched proof-of-concept argument for Aim 3 of the Thome proposal.'
+    relevance: 'Provides mechanistic rationale for why ASD adults face elevated ADRD risk and why GLP-1 RAs may be particularly relevant in this population: the cardiometabolic risk pathways that GLP-1s address are disproportionately elevated in ASD. This is contextual rationale for an exploratory ASD/T2D medication-outcomes question, not evidence of a treatment effect.'
   }
 ,
   {
@@ -1308,7 +1308,7 @@ const STUDIES = [
       'Direct methodological precedent for the mediation analysis planned in the Leumit Israel collaboration'
     ],
     limitations: 'Residual confounding possible; metabolic measures in claims are proxied. Weight and HbA1c changes may be measured with error.',
-    relevance: 'Direct precedent for the Thome mediation aim. The minimal mediation through measured BMI and HbA1c suggests that the GLP-1/ADRD association, if causal, likely reflects mechanisms beyond simple glycemic or weight control — relevant to both the T2D and the ASD/T2D subgroup analyses.'
+    relevance: 'Relevant precedent for a possible metabolic mediation analysis. The minimal mediation through measured BMI and HbA1c suggests that the GLP-1/ADRD association, if causal, likely reflects mechanisms beyond simple glycemic or weight control — relevant to both the T2D and the ASD/T2D subgroup analyses.'
   },
   {
     id: 'wu2025',
@@ -1334,7 +1334,7 @@ const STUDIES = [
       'ITT estimates attenuate toward null as treatment discontinuation accumulates'
     ],
     limitations: 'On-treatment analyses can introduce informative censoring bias (sicker patients discontinue). ITT and on-treatment may estimate different causal estimands.',
-    relevance: 'Methodological caution for the Thome and Medicare analyses: the chosen follow-up strategy (ITT vs per-protocol) materially changes the HR and must be pre-specified and justified. On-treatment estimates may be more biologically plausible but are harder to identify causally.'
+    relevance: 'Methodological caution for separate GLP-1/ADRD analyses: the chosen follow-up strategy (ITT vs per-protocol) materially changes the HR and must be pre-specified and justified. On-treatment estimates may be more biologically plausible but are harder to identify causally.'
   },
   {
     id: 'zhou2026',
@@ -1361,7 +1361,7 @@ const STUDIES = [
       'Comparator choice fundamentally changes which treatment effect is estimated'
     ],
     limitations: 'DPP-4i is a metabolically active comparator — not fully inert. SGLT2i class effects confound the comparison. Residual channeling bias possible.',
-    relevance: 'Directly supports the choice of DPP-4i as the active comparator in the Thome Aim 3 and the James Medicare preliminary analysis. If SGLT2i is the comparator, the GLP-1 apparent protective effect is substantially attenuated or reversed. DPP-4i comparator with IPTW weighting is the more defensible design.'
+    relevance: 'Illustrates how comparator choice changes observed associations in GLP-1/ADRD studies, including preliminary Medicare work. If SGLT2i is the comparator, the GLP-1 apparent protective effect is substantially attenuated or reversed. DPP-4i comparator with IPTW weighting is the more defensible design.'
   },
   {
     id: 'schechter2026',
@@ -1387,7 +1387,7 @@ const STUDIES = [
       'Does NOT directly inform the incident MCI outcome — different from HR 0.983 in the James Medicare preliminary data'
     ],
     limitations: 'MCI ascertainment in claims may be unreliable. Time since MCI onset not controlled. Cannot distinguish prevention from slowing of progression in MCI-to-dementia transition.',
-    relevance: 'Important for Thome Aim 1 baseline MCI interaction hypothesis. However: this study examines MCI-at-baseline converting to dementia, while the preliminary Medicare finding of HR 0.983 concerns incident MCI in cognitively unimpaired adults. These are different clinical questions requiring different analytic approaches. Do not treat as replications of each other.'
+    relevance: 'Relevant to questions about effect heterogeneity by baseline MCI status. However: this study examines MCI-at-baseline converting to dementia, while the preliminary Medicare finding of HR 0.983 concerns incident MCI in cognitively unimpaired adults. These are different clinical questions requiring different analytic approaches. Do not treat as replications of each other.'
   },
   {
     id: 'siqueira2026',
@@ -1413,7 +1413,7 @@ const STUDIES = [
       'All included trials enrolled symptomatic AD or MCI patients — not cognitively unimpaired adults'
     ],
     limitations: 'All trials test symptomatic patients, not primary prevention. CDR-SB as shared endpoint may not capture all dimensions of cognitive change. Trial populations may differ from real-world T2D clinical practice.',
-    relevance: 'Confirms that randomized trial evidence, taken as a whole, does not support GLP-1 RAs for treating established symptomatic AD or MCI. Strengthens the hypothesis that any benefit must be sought earlier in the disease course — the prevention window hypothesis motivating the Thome GLP-1 program. This null RCT evidence (Siqueira 2026 + EVOKE) is the contextual argument for prevention-focused observational work.'
+    relevance: 'Confirms that randomized trial evidence, taken as a whole, does not support GLP-1 RAs for treating established symptomatic AD or MCI. Strengthens the hypothesis that any benefit must be sought earlier in the disease course — the prevention window hypothesis motivating the Related GLP-1 program. This null RCT evidence (Siqueira 2026 + EVOKE) is the contextual argument for prevention-focused observational work.'
   }
 ];
 
@@ -1951,4 +1951,4 @@ window.addEventListener('scroll',syncScroll,{passive:true});
 window.addEventListener('resize',syncScroll,{passive:true});
 setActive(0);syncScroll();
 })();
-</script><script>document.getElementById('thome-evidence-link')?.addEventListener('click',()=>{const b=document.querySelector('[data-filter="glp1"]'); b?.click();});</script></body></html>
+</script><script>document.getElementById('related-glp1-evidence-link')?.addEventListener('click',()=>{const b=document.querySelector('[data-filter="glp1"]'); b?.click();});</script></body></html>
