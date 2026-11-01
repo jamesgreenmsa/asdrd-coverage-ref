@@ -644,6 +644,11 @@ a.prog-card, a.prog-library { text-decoration: none; display: block; color: inhe
 }
 
 </style><style>
+/* Scroll-story stability: one chart frame and one authoritative active step. */
+.sc-visual-stage .sc-risk-curve,.sc-visual-stage .sc-source-legend,.sc-visual-stage .sc-lane-guides,.sc-visual-stage .sc-lane-layer,.sc-visual-stage .sc-source-overview{transition:opacity .24s ease;}
+.sc-visual-note{min-height:35px;}
+.sc-step{scroll-margin-top:36vh;}
+@media(max-width:880px){.sc-mobile-snapshot svg .sc-lane-layer,.sc-mobile-snapshot svg .sc-risk-curve,.sc-mobile-snapshot svg .sc-source-legend,.sc-mobile-snapshot svg .sc-lane-guides,.sc-mobile-snapshot svg .sc-source-overview{transition:none!important}.sc-mobile-snapshot svg{max-height:260px}}
 /* ── Guided research story: standalone, progressive and accessible ── */
 :root{--story-ink:var(--fg);--story-accent:var(--blue);--story-med:var(--c-med);--story-com:var(--c-com);--story-dual:var(--c-dual)}
 html{scroll-behavior:smooth}
@@ -689,8 +694,8 @@ section{scroll-margin-top:72px}
 .sc-visual-kicker{font-size:10px;font-weight:800;color:var(--blue);text-transform:uppercase;letter-spacing:.08em}
 .sc-visual-title{font-size:15px;font-weight:750;color:var(--fg);line-height:1.35;margin-top:3px}
 .sc-counter{font-size:11px;color:var(--fg3);font-variant-numeric:tabular-nums;white-space:nowrap}
-.sc-visual-stage{min-height:310px;display:flex;flex-direction:column;justify-content:center;gap:12px}
-.sc-visual-stage svg{display:block;width:100%;height:auto;max-height:340px;overflow:visible}
+.sc-visual-stage{height:302px;min-height:0;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.sc-visual-stage svg{display:block;width:100%;height:100%;max-height:100%;overflow:visible}
 .sc-visual-stage [data-reveal]{animation:scReveal .35s ease both}
 @keyframes scReveal{from{opacity:.1;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
 .sc-visual-note{font-size:11px;color:var(--fg3);line-height:1.5;margin:7px 0 0}
@@ -755,18 +760,19 @@ section{scroll-margin-top:72px}
 <div class="sc-cta-row"><a class="sc-cta" href="#story">Follow the US design story <span aria-hidden="true">↓</span></a><a class="sc-cta sc-cta--secondary" href="#timeline">Skip to the full tools ↗</a></div>
 </div>
 </section><section aria-label="Guided US study design story" id="story">
-<div class="sc-story-head"><div class="sc-eyebrow">Guided explainer · NIH ASD/ADRD study</div><h2>From research question to defensible study design</h2><p>Scroll through the decisions in sequence. Each step adds a layer to the visual; the complete tools remain accessible at any time. No datasets have been combined or linked in this illustration.</p></div>
+<div class="sc-story-head"><div class="sc-eyebrow">Guided explainer · NIH ASD/ADRD study</div><h2>Build the swim-lane logic one step at a time</h2><p>This opening walkthrough focuses on a single visual idea: why different coverage pathways create different observation windows. The right-hand illustration stays fixed in one place and becomes more complete as you scroll.</p></div>
 <div class="sc-story-layout">
-<div class="sc-story-steps"><article class="sc-step is-active" data-scene="question" data-step="0" id="scene-question" tabindex="-1"><span class="sc-step-label">01 / The question</span><h3>How does diagnosed dementia risk differ between autistic and non-autistic adults?</h3><p>To answer that question, we first need to know <strong>which adults the data represent</strong>, when each person is observable, and what counts as an ADRD event.</p><p class="sc-step-question">The largest dataset is not necessarily the best dataset for the scientific question.</p><a class="sc-mini-link" href="#population">Study the proposed US population ↗</a></article><article class="sc-step" data-scene="sources" data-step="1" id="scene-sources" tabindex="-1"><span class="sc-step-label">02 / The problem</span><h3>Claims data do not follow every autistic adult in the same way.</h3><p>Coverage changes affect whose diagnoses, encounters and outcomes we can see. <strong>Medicare FFS, Medicaid and commercial claims</strong> capture different populations and observation periods.</p><p class="sc-step-question">A gap in insurance claims does not mean a person was disease-free.</p><a class="sc-mini-link" href="#timeline">Open full timeline ↗</a></article><article class="sc-step" data-scene="lane1" data-step="2" id="scene-lane1" tabindex="-1"><span class="sc-step-label">03 / Pathway A</span><h3>One possible pathway: disability entitlement and dual eligibility.</h3><p>An autistic adult may receive Medicaid-supported services and later qualify for Medicare before age 65 through disability. Claims visibility changes with the payer and FFS versus managed-care enrollment.</p><p class="sc-step-question">The age and pathway shown are illustrative, not a population average.</p><a class="sc-mini-link" href="#timeline">Explore all five pathways ↗</a></article><article class="sc-step" data-scene="lane2" data-step="3" id="scene-lane2" tabindex="-1"><span class="sc-step-label">04 / Pathway B</span><h3>A different pathway: commercial coverage into adulthood.</h3><p>Another adult may be observed through employer-sponsored insurance, experience a change in coverage, and later enter Medicare. This history may be largely missing from Medicare claims.</p><p class="sc-step-question">Different observation windows may produce different analytic populations.</p><a class="sc-mini-link" href="#timeline">Open full swim-lane explorer ↗</a></article><article class="sc-step" data-scene="lane3" data-step="4" id="scene-lane3" tabindex="-1"><span class="sc-step-label">05 / Pathway C</span><h3>Medicaid contributes a different window into care.</h3><p>For some people receiving Medicaid-funded services, eligibility, state policy and managed-care arrangements determine which encounters are recorded and how consistently.</p><p class="sc-step-question">Medicaid eligibility is not the same thing as a validated intellectual-disability phenotype.</p><a class="sc-mini-link" href="#population">See Medicaid design role ↗</a></article><article class="sc-step" data-scene="full" data-step="5" id="scene-full" tabindex="-1"><span class="sc-step-label">06 / Put the pathways together</span><h3>The complete swim-lane tool makes the observability problem tangible.</h3><p>We can now compare illustrative pathways side by side. Select a lane in the <strong>full interactive explorer</strong> for deeper details and data-source implications.</p><p class="sc-step-question">The diagram explains possibilities; actual cohort sizes and eligibility must come from data.</p><a class="sc-mini-link" href="#timeline">Open interactive swim lanes ↗</a></article><article class="sc-step" data-scene="cohort" data-step="6" id="scene-cohort" tabindex="-1"><span class="sc-step-label">07 / Cohort construction</span><h3>A recorded claim is not necessarily disease onset.</h3><p>ASD identification, analytic time zero, baseline observation and ADRD detection are distinct decisions. Enrollment gaps may hide diagnoses or events, while strict enrollment rules may exclude important groups.</p><p class="sc-step-question">We need both an ascertainment rule and an explicit risk-time rule.</p><a class="sc-mini-link" href="#approach">Read detailed design approach ↗</a></article><article class="sc-step" data-scene="comparators" data-step="7" id="scene-comparators" tabindex="-1"><span class="sc-step-label">08 / The comparison</span><h3>There is no universally best non-ASD comparison population.</h3><p>An age-aligned older-adult comparison estimates a different association than a disability-entitled or dual-enrolled comparison. The target population and possible selection biases change with that decision.</p><p class="sc-step-question">Choose the primary estimand before declaring the best comparator.</p><a class="sc-mini-link" href="#comparison">Open five-comparator scorecard ↗</a></article><article class="sc-step" data-scene="strategy" data-step="8" id="scene-strategy" tabindex="-1"><span class="sc-step-label">09 / Population strategy</span><h3>Could three datasets answer complementary questions?</h3><p>A proposed US strategy uses <strong>Medicare FFS</strong> for an older-adult estimate, <strong>MarketScan</strong> for commercially insured adults including those under 65, and <strong>selected Medicaid data</strong> for complementary populations and support-needs contexts.</p><p class="sc-step-question">These are separate analytic populations, not a single linked life-course cohort.</p><a class="sc-mini-link" href="#population">Review proposed source roles ↗</a></article><article class="sc-step" data-scene="outcomes" data-step="9" id="scene-outcomes" tabindex="-1"><span class="sc-step-label">10 / Outcomes</span><h3>An observed ADRD event depends on the coding algorithm.</h3><p>Bynum-standard and DREAM use related claims-based ascertainment logic. Differences in encounter types, code lists, spacing and baseline observation can change who is counted.</p><p class="sc-step-question">Neither method is automatically validated to perform identically in autistic adults with ID.</p><a class="sc-mini-link" href="#approach">Open full method notes ↗</a></article><article class="sc-step" data-scene="evidence" data-step="10" id="scene-evidence" tabindex="-1"><span class="sc-step-label">11 / What supports the choices?</span><h3>Each study answers a different part of the question.</h3><p>Vivanti 2021 provides comparative Medicaid evidence; Vivanti 2025 describes prevalence within an autistic Medicare–Medicaid population; Nikahd 2026 addresses older Medicare beneficiaries; Bynum and DREAM inform ascertainment.</p><p class="sc-step-question">Results from different designs should not be treated as interchangeable effects.</p><a class="sc-mini-link" href="#studies">Browse evidence library ↗</a></article><article class="sc-step" data-scene="decisions" data-step="11" id="scene-decisions" tabindex="-1"><span class="sc-step-label">12 / From explanation to protocol</span><h3>Make the remaining analytic choices explicit.</h3><p>The working plan needs choices about target population, comparator, ASD codes, entry and washout, enrollment gaps, dementia algorithms, mortality and feasibility across datasets.</p><p class="sc-step-question">A proposed design is not a finalized team decision.</p><a class="sc-mini-link" href="#decisions">Open decision checklist ↗</a></article></div>
+<div class="sc-story-steps"><article class="sc-step is-active" data-scene="question" data-step="0" id="scene-question" tabindex="-1"><span class="sc-step-label">01 / The question</span><h3>How does diagnosed dementia risk differ between autistic and non-autistic adults?</h3><p>Before choosing a dataset, comparator or outcome algorithm, we need to understand <strong>when people are visible in claims</strong> and how that visibility overlaps with later-life ADRD risk.</p><p class="sc-step-question">Start with the risk window, then ask which data sources actually observe it.</p><a class="sc-mini-link" href="#population">Jump to the proposed US population strategy ↗</a></article><article class="sc-step" data-scene="sources" data-step="1" id="scene-sources" tabindex="-1"><span class="sc-step-label">02 / The problem</span><h3>No single claims source follows every autistic adult the same way.</h3><p>Medicare FFS, Medicaid and commercial claims each capture different populations and different spans of adulthood. A person can be fully visible in one source, partially visible in another, and entirely absent from a third.</p><p class="sc-step-question">The observability problem comes before the cohort-design problem.</p><a class="sc-mini-link" href="#timeline">Open the full tool ↗</a></article><article class="sc-step" data-scene="lane1" data-step="2" id="scene-lane1" tabindex="-1"><span class="sc-step-label">03 / Pathway A</span><h3>Pathway A: disability-related Medicare entry can create strong late-life observation.</h3><p>An autistic adult may begin in Medicaid-supported services and later enter Medicare before age 65 through disability. That can create meaningful claims visibility during the period when dementia outcomes become more relevant.</p><p class="sc-step-question">This is an illustrative pathway, not a statement about typical ages or guaranteed entitlement.</p><a class="sc-mini-link" href="#timeline">Compare with the full five-lane chart ↗</a></article><article class="sc-step" data-scene="lane2" data-step="3" id="scene-lane2" tabindex="-1"><span class="sc-step-label">04 / Pathway B</span><h3>Pathway B: commercial coverage can observe earlier adulthood but miss later risk years.</h3><p>A different adult may be visible mainly through employer-sponsored insurance, then lose that observation before or around the time dementia risk starts to rise. Medicare may only capture a later slice of that history.</p><p class="sc-step-question">A long commercial history does not automatically translate into late-life ADRD follow-up.</p><a class="sc-mini-link" href="#population">See how this motivates MarketScan's role ↗</a></article><article class="sc-step" data-scene="lane3" data-step="4" id="scene-lane3" tabindex="-1"><span class="sc-step-label">05 / Pathway C</span><h3>Pathway C: Medicaid contributes a different but important window into care.</h3><p>For some autistic adults, Medicaid offers a distinct view of care, support needs and eligibility contexts. But that view depends on state rules, managed-care arrangements and encounter completeness.</p><p class="sc-step-question">Medicaid may add representation, but it does not behave like a national linked life-course cohort.</p><a class="sc-mini-link" href="#population">See the proposed role of Medicaid ↗</a></article><article class="sc-step" data-scene="full" data-step="5" id="scene-full" tabindex="-1"><span class="sc-step-label">06 / The full idea</span><h3>The full swim-lane tool makes the observability problem tangible.</h3><p>Once the pathways are shown side by side, the analytic implications become easier to understand. The swim-lane tool is not the analysis itself; it is a teaching device for thinking about <strong>who becomes observable, when, and in which source</strong>.</p><p class="sc-step-question">Now that the logic is clear, we can move from the visual story to the analytic decisions it informs.</p><a class="sc-mini-link" href="#timeline">Open the full interactive swim-lane explorer ↗</a></article></div>
 <aside aria-label="Illustrative research design graphics, updated as the story progresses" class="sc-story-visual">
-<div class="sc-visual-top"><div><div class="sc-visual-kicker">Progressive visual</div><div class="sc-visual-title" id="sc-visual-title">Age and dementia outcomes</div></div><span class="sc-counter" id="sc-counter">01 / 12</span></div>
+<div class="sc-visual-top"><div><div class="sc-visual-kicker">Progressive visual</div><div class="sc-visual-title" id="sc-visual-title">Age and dementia outcomes</div></div><span class="sc-counter" id="sc-counter">01 / 06</span></div>
 <div aria-label="Story illustration" class="sc-visual-stage" id="sc-visual-stage"></div>
 <p class="sc-visual-note" id="sc-visual-note">Illustrative schematic, not an observed enrollment distribution.</p>
 <div class="sc-step-nav"><button aria-label="Previous narrative step" disabled="" id="sc-prev" type="button">← Previous</button><button aria-label="Next narrative step" id="sc-next" type="button">Next →</button></div>
-<div class="sc-tools"><a href="#timeline">Full swim-lane explorer ↗</a><a href="#population">Dataset strategy ↗</a><a href="#studies">Evidence ↗</a></div>
+<div class="sc-tools"><a href="#timeline">Full swim-lane explorer ↗</a><a href="#population">Dataset strategy ↗</a><a href="#comparison">Comparator scorecard ↗</a></div>
 </aside>
 </div>
 </section>
+<section class="sc-section" id="story-implications" aria-label="Analytic implications of the swim-lane walkthrough"><div class="sc-eyebrow">What the swim lanes help us decide</div><h2>From visual story to analytic choices</h2><p>After the full swim-lane idea is introduced, the rest of the website can return to simpler, stable layouts. These sections explain what the visualization is meant to inform.</p><div class="sc-grid3"><div class="sc-role"><div class="sc-role-k">Cohort construction</div><h3>Claims are not the same as disease onset.</h3><p>ASD ascertainment, analytic time zero, baseline observation and incident ADRD definition are separate design decisions. Enrollment gaps hide observation, not necessarily disease.</p><a class="sc-jump" href="#approach">Open cohort-design notes ↗</a></div><div class="sc-role"><div class="sc-role-k">Comparison population</div><h3>The best comparator depends on the estimand.</h3><p>Age-aligned, disability-entitled and dual-enrolled comparators answer related but non-identical questions. The choice should follow the target population and selection logic.</p><a class="sc-jump" href="#comparison">Open comparator scorecard ↗</a></div><div class="sc-role"><div class="sc-role-k">US data strategy</div><h3>Different datasets may play complementary roles.</h3><p>Medicare FFS, MarketScan and selected Medicaid data could support distinct but coordinated analyses rather than one linked life-course cohort.</p><a class="sc-jump" href="#population">Open US population strategy ↗</a></div></div><div class="sc-grid3"><div class="sc-role"><div class="sc-role-k">ADRD ascertainment</div><h3>Bynum and DREAM are related, but not identical.</h3><p>Both rely on diagnosis claims rather than Part D dementia medications. Code lists, settings, spacing and washout still need explicit team agreement.</p><a class="sc-jump" href="#approach">Review ascertainment methods ↗</a></div><div class="sc-role"><div class="sc-role-k">Evidence base</div><h3>Different papers answer different questions.</h3><p>Vivanti, Nikahd, McCarthy, Grodstein and DREAM each support a different part of the analytic framework. They should not be treated as interchangeable effect estimates.</p><a class="sc-jump" href="#studies">Browse the evidence library ↗</a></div><div class="sc-role"><div class="sc-role-k">Decision ledger</div><h3>Several choices remain open.</h3><p>The site should distinguish proposed directions from design decisions that still require feasibility work, empirical counts or investigator agreement.</p><a class="sc-jump" href="#decisions">Open the decision checklist ↗</a></div></div></section>
 <section id="timeline"><div class="sc-eyebrow">Complete interactive reference</div>
 <h2>ASD Patient Coverage by Data Source and Age</h2>
 <p class="lead">Illustrative, deliberately simplified coverage pathways. The shaded later-adulthood region represents a rising risk context, not a biological cutoff at age 50. Click a row for its original detailed interpretation.</p>
@@ -1818,38 +1824,131 @@ const COMPARISONS = [
 </script>
 <script>(function(){
 'use strict';
-const allSteps=[...document.querySelectorAll('.sc-step')], mount=document.getElementById('sc-visual-stage');
-if(!allSteps.length||!mount)return;
-const title=document.getElementById('sc-visual-title'), count=document.getElementById('sc-counter'), note=document.getElementById('sc-visual-note');
-const prev=document.getElementById('sc-prev'), next=document.getElementById('sc-next');
-const stageNames={question:'What is the risk window?',sources:'Different observation sources',lane1:'Pathway A: possible disability entitlement',lane2:'Pathway B: commercial to later Medicare',lane3:'Pathway C: Medicaid-supported services',full:'Three pathways become five',cohort:'Identification versus outcome detection',comparators:'Choose the question, then the comparator',strategy:'Three complementary sources',outcomes:'Bynum and DREAM',evidence:'Evidence supporting different decisions',decisions:'Open design decisions'};
-const stageNotes={question:'Dementia risk generally increases with age. The shading is qualitative, not a threshold.',sources:'Different payers offer different, often interrupted observation windows.',lane1:'Illustrative, not a predicted age of entitlement. Some beneficiaries enter Medicare before age 65.',lane2:'Commercial claims cannot necessarily follow the same person into Medicare.',lane3:'Medicaid claims completeness and eligibility rules vary across states and years.',full:'The detailed five-lane timeline remains available below and is independently clickable.',cohort:'A gap hides observation, not necessarily disease. Claims and onset are not synonymous.',comparators:'Different selection rules identify different target populations, not one neutral control.',strategy:'Three analyses, not a linked person-level cohort. Roles remain proposed.',outcomes:'Both use diagnoses rather than Part D dementia medicines. Exact definitions need reconciliation.',evidence:'These publications support different epidemiologic and methodological claims.',decisions:'Working decisions only. Team agreement and empirical feasibility are still needed.'};
-const enc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const ageScale=a=>132+a*7.25;
-const baseSvg=(body,footer='Illustrative, not to scale')=>`<svg viewBox="0 0 744 350" role="img" aria-label="${enc(footer)}" xmlns="http://www.w3.org/2000/svg"><rect x="132" y="39" width="580" height="272" rx="9" fill="var(--surface2)"/><rect x="459" y="39" width="253" height="272" fill="#B9747E" opacity=".18"/><g stroke="var(--border)" stroke-dasharray="3 5">${[0,20,40,60,80].map(a=>`<line x1="${ageScale(a)}" x2="${ageScale(a)}" y1="49" y2="311"/>`).join('')}</g>${body}<g font-family="Inter,system-ui,sans-serif" font-size="12" fill="var(--fg3)">${[0,20,40,60,80].map(a=>`<text x="${ageScale(a)}" y="334" text-anchor="middle">${a}</text>`).join('')}<text x="132" y="24" font-size="11" font-weight="700">AGE (YEARS)</text><text x="582" y="24" font-size="11" font-weight="700" text-anchor="middle">Later adulthood</text></g></svg>`;
-const band=(a,b,y,color,text)=>`<rect x="${ageScale(a)}" y="${y}" width="${Math.max(3,ageScale(b)-ageScale(a))}" height="34" rx="5" fill="${color}" opacity=".94"/><text x="${ageScale(a)+9}" y="${y+22}" font-family="Inter,system-ui,sans-serif" font-size="12" fill="white">${text}</text>`;
-const rowName=(name,y)=>`<text x="124" y="${y+17}" text-anchor="end" font-family="Inter,system-ui,sans-serif" font-size="12" font-weight="650" fill="var(--fg)">${name}</text>`;
-function ageOnly(){return baseSvg(`<text x="420" y="130" text-anchor="middle" font-size="19" font-weight="750" fill="var(--fg)">Increasing age-related risk</text><path d="M160 267 C305 264 394 251 478 225 C573 196 629 146 699 92" stroke="#C95B60" fill="none" stroke-width="6" stroke-linecap="round"/><circle cx="699" cy="92" r="7" fill="#C95B60"/><text x="422" y="294" text-anchor="middle" font-size="12" fill="var(--fg2)">Risk generally rises, with no fixed onset age</text>`,'Age line, a rising qualitative dementia risk curve, not an empirical estimate');}
-function sources(){return baseSvg(rowName('Medicare FFS',82)+band(21,58,67,'var(--navy)','FFS months')+rowName('Commercial',168)+band(4,36,151,'var(--c-com)','Coverage months')+rowName('Medicaid',253)+band(8,32,239,'var(--c-med)','Eligible months')+band(39,65,239,'var(--c-med)','Possible re-entry'),'Schematic excerpts from three claims sources, not universal ages');}
-const lanes=[{label:'Disability',parts:[[0,20,'var(--c-med)','Medicaid'],[20,80,'var(--c-dual)','Possible dual eligibility']]},{label:'Commercial',parts:[[0,16,'var(--c-med)','Child'],[16,48,'var(--c-com)','Commercial'],[48,59,'var(--c-gap)',''],[59,80,'var(--navy)','FFS']]},{label:'Medicaid',parts:[[0,29,'var(--c-med)','Medicaid'],[29,47,'var(--c-gap)',''],[47,80,'var(--c-med)','Eligible months']]},{label:'Later ASD dx',parts:[[0,55,'var(--c-com)','Commercial'],[55,80,'var(--navy)','Later Medicare']]},{label:'Registry',parts:[[0,80,'var(--c-nor)','Registry ascertainment varies']]}];
-function pathways(n){let body='';const sel=lanes.slice(0,n);const space=240/Math.max(1,n); sel.forEach((r,i)=>{const y=58+i*space; body+=rowName(r.label,y+3);r.parts.forEach(p=>body+=band(p[0],p[1],y,p[2],p[3]));});return baseSvg(body,'Illustrative pathway comparison, not linked trajectories or typical enrollment ages');}
-function cohort(){let svg='<text x="132" y="79" fill="var(--fg)" font-size="14" font-weight="700">Observed and unobserved risk-time</text>';svg+=band(4,29,143,'var(--c-ffs)','FFS claims')+band(29,43,143,'var(--c-gap)','')+band(43,73,143,'var(--c-ffs)','FFS claims');
-  [[12,'First ASD code'],[23,'Second code'],[52,'Baseline review'],[68,'ADRD claim']].forEach(([a,l],i)=>{const x=ageScale(a);svg+=`<line x1="${x}" y1="130" x2="${x}" y2="215" stroke="${i===3?'#BF5757':'var(--fg3)'}" stroke-width="2" stroke-dasharray="4 4"/><text x="${x}" y="${i%2?265:237}" text-anchor="middle" fill="var(--fg2)" font-size="11">${l}</text>`;});svg+=`<text x="${ageScale(36)}" y="128" text-anchor="middle" fill="var(--fg2)" font-size="12">Unobserved interval</text>`;return baseSvg(svg,'A hypothetical patient observation timeline: ASD claims and dementia detection are distinct events');}
-const choose=(arr,key,subtitle)=>`<div class="sc-visual-cards" role="group" aria-label="${enc(subtitle)}">${arr.map((a,i)=>`<button type="button" class="sc-choose ${i===0?'is-chosen':''}" data-choice="${i}"><strong>${enc(a[0])}</strong><span style="display:block;color:var(--fg3);font-size:11px;margin-top:5px">${enc(a[1])}</span></button>`).join('')}</div><p class="sc-visual-caption sc-choice-detail">${enc(arr[0][2])}</p>`;
-const comparator=[['Age-aligned FFS','Older-age comparison','Answers an older-adult Medicare question; original reason for entitlement still matters.'],['Disability-entitled','Entitlement-aligned','Better alignment in disability pathway, but conditioning on disability may itself select on common causes.'],['Dual-enrolled','Benefit context','Aligns an enrollment/benefits dimension, not necessarily income or overall socioeconomic circumstances.']];
-const strategy=[['Medicare FFS','Older-adult estimate','Evaluate ASD ascertainment, target comparator, incident ADRD outcomes and FFS eligibility.'],['MarketScan','Earlier adult window','Confirm numbers of ASD and T2D cases and sufficient incident ADRD events with usable baseline.'],['Medicaid','Complementary population','Confirm state years, ID definitions, managed-care encounter completeness and outcome capture.']];
-const outcomes=[['Bynum-standard','Part A/B diagnosis claims','One qualifying institutional encounter or two qualifying Carrier/specified outpatient claims at least 7 days apart; no Part D medicines.'],['DREAM','Related diagnosis logic','One inpatient or two outpatient diagnosis claims; reconcile eligible codes, spacing, settings and study baseline.']];
-function evidence(){let arr=[['ASD association','Vivanti 2021','ref-6'],['ASD prevalence','Vivanti 2025','ref-2'],['Older adults','Nikahd 2026','ref-9'],['ADRD methods','Bynum / DREAM','ref-3']];return `<div class="sc-visual-cards">${arr.map(x=>`<div class="sc-visual-card"><strong>${x[0]}</strong><p>${x[1]}</p><a href="#${x[2]}">Reference ↗</a></div>`).join('')}</div><p class="sc-visual-caption">Evidence supports different decisions. See the expandable study library for design and limitations.</p>`;}
-function decisions(){return `<div class="sc-visual-cards"><div class="sc-visual-card"><strong>Proposed</strong><p>US source roles; comparator candidates</p></div><div class="sc-visual-card"><strong>Needs counts</strong><p>Event feasibility; baseline eligibility; state completeness</p></div><div class="sc-visual-card"><strong>Needs agreement</strong><p>Time zero; washout; code lists</p></div><div class="sc-visual-card"><strong>Needs testing</strong><p>Selection effects; outcome sensitivity; mortality</p></div></div><p class="sc-visual-caption">Discussion status is not investigator approval.</p>`;}
-const renderers={question:ageOnly,sources,lane1:()=>pathways(1),lane2:()=>pathways(2),lane3:()=>pathways(3),full:()=>pathways(5),cohort,comparators:()=>choose(comparator,'comparator','Select a comparator'),strategy:()=>choose(strategy,'strategy','Select a source'),outcomes:()=>choose(outcomes,'outcomes','Select an ADRD algorithm'),evidence,decisions};
-// On smaller screens, put each illustration directly in its narrative step. This avoids covering text with a sticky overlay.
-allSteps.forEach(step=>{const scene=step.dataset.scene;const mini=document.createElement('div');mini.className='sc-mobile-snapshot';mini.setAttribute('aria-label',stageNames[scene]+' visual');mini.innerHTML=renderers[scene]();const anchor=step.querySelector('.sc-step-question');step.insertBefore(mini,anchor);const opts=[...mini.querySelectorAll('.sc-choose')],detail=mini.querySelector('.sc-choice-detail');const vals=scene==='comparators'?comparator:scene==='strategy'?strategy:outcomes;opts.forEach(btn=>btn.addEventListener('click',()=>{opts.forEach(x=>x.classList.toggle('is-chosen',x===btn));if(detail)detail.textContent=vals[Number(btn.dataset.choice)][2]}));});
-let active=0,manuallyNavigating=false;
-function setActive(i){if(i<0||i>=allSteps.length||active===i&&mount.childElementCount)return;active=i;const step=allSteps[active],id=step.dataset.scene;allSteps.forEach((x,j)=>{x.classList.toggle('is-active',j===active);x.setAttribute('aria-current',j===active?'step':'false')});title.textContent=stageNames[id];count.textContent=String(active+1).padStart(2,'0')+' / '+String(allSteps.length).padStart(2,'0');note.textContent=stageNotes[id];mount.innerHTML=renderers[id]();prev.disabled=active===0;next.disabled=active===allSteps.length-1;const buttons=[...mount.querySelectorAll('.sc-choose')],detail=mount.querySelector('.sc-choice-detail');let source=(id==='comparators'?comparator:id==='strategy'?strategy:outcomes);buttons.forEach(btn=>btn.addEventListener('click',()=>{buttons.forEach(b=>b.classList.toggle('is-chosen',b===btn));if(detail)detail.textContent=source[Number(btn.dataset.choice)][2]}));}
-setActive(0);
-function jump(idx){allSteps[idx]?.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'center'});setActive(idx)}
-prev.addEventListener('click',()=>jump(active-1));next.addEventListener('click',()=>jump(active+1));
-if('IntersectionObserver' in window){const observer=new IntersectionObserver(entries=>{const matches=entries.filter(e=>e.isIntersecting).sort((a,b)=>b.intersectionRatio-a.intersectionRatio);if(matches.length)setActive(Number(matches[0].target.dataset.step))},{rootMargin:'-34% 0px -34% 0px',threshold:[0,.1,.2,.35,.55]});allSteps.forEach(el=>observer.observe(el));}
-else {const scrollfn=()=>{const middle=window.innerHeight*.55;let best=0,d=Infinity;allSteps.forEach((el,i)=>{const r=el.getBoundingClientRect();let x=Math.abs((r.top+r.bottom)/2-middle);if(x<d){d=x;best=i}});setActive(best)};window.addEventListener('scroll',scrollfn,{passive:true});}
+const steps=[...document.querySelectorAll('#story .sc-step')];
+const mount=document.getElementById('sc-visual-stage');
+if(!steps.length || !mount)return;
+const title=document.getElementById('sc-visual-title');
+const count=document.getElementById('sc-counter');
+const note=document.getElementById('sc-visual-note');
+const prev=document.getElementById('sc-prev');
+const next=document.getElementById('sc-next');
+const scenes=[
+ {name:'Start with the ADRD risk window',note:'The shading highlights later adulthood qualitatively, not an age threshold or a measured risk curve.'},
+ {name:'Which sources observe that window?',note:'The colors represent possible coverage types; individual enrollment timelines vary.'},
+ {name:'Pathway A: disability entitlement',note:'An illustrative Medicaid-to-Medicare trajectory, not a typical enrollment age.'},
+ {name:'Pathway B: commercial coverage',note:'Commercial observation can end before the years with the highest ADRD event rates.'},
+ {name:'Pathway C: Medicaid-supported care',note:'Medicaid eligibility and encounter data vary across states, years and programs.'},
+ {name:'Five illustrative coverage pathways',note:'All pathways are teaching examples. The full interactive tool follows immediately below.'}
+];
+// All six scenes use this one, persistent SVG. Only layer opacity changes.
+// The x-axis, background, row positions, and sticky-card size never move.
+const x=a=>148+a*7.025;
+const esc=s=>String(s).replace(/[&<>\"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#39;'}[c]));
+const segment=(a,b,y,color,label)=>{
+ const start=x(a),w=x(b)-start;
+ return `<rect x="${start}" y="${y}" width="${w}" height="27" rx="4" fill="${color}"/>${label&&w>88?`<text x="${start+10}" y="${y+18}" font-size="11.5" font-weight="650" fill="white">${esc(label)}</text>`:''}`;
+};
+const pathRows=[
+ {name:'Disability',y:119,parts:[[0,21,'var(--c-med)','Medicaid'],[21,80,'var(--c-dual)','Dual eligible / FFS']]},
+ {name:'Commercial',y:164,parts:[[0,18,'var(--c-med)','Childhood'],[18,47,'var(--c-com)','Commercial'],[47,60,'var(--c-gap)',''],[60,80,'var(--navy)','FFS']]},
+ {name:'Medicaid care',y:209,parts:[[0,32,'var(--c-med)','Medicaid'],[32,49,'var(--c-gap)',''],[49,80,'var(--c-med)','Possible reentry']]},
+ {name:'Late ASD dx',y:254,parts:[[0,64,'var(--c-com)','Commercially insured'],[64,80,'var(--navy)','FFS']]},
+ {name:'Registry',y:299,parts:[[0,80,'var(--c-nor)','Registry ascertainment (not US claims)']]}
+];
+const grid=[0,20,40,60,80].map(a=>`<line x1="${x(a)}" x2="${x(a)}" y1="90" y2="338" stroke="var(--border)" stroke-dasharray="3 5"/><text x="${x(a)}" y="375" text-anchor="middle" font-size="11" fill="var(--fg3)">${a}</text>`).join('');
+const swatches=[['var(--c-med)','Medicaid'],['var(--c-com)','Commercial'],['var(--navy)','Medicare FFS'],['var(--c-dual)','Dual FFS/Medicaid']].map(([color,label],i)=>{let pos=[145,265,397,527][i]; return `<rect x="${pos}" y="56" width="10" height="10" rx="2" fill="${color}"/><text x="${pos+15}" y="65" font-size="10.5" fill="var(--fg2)">${label}</text>`;}).join('');
+const overview=`<g class="sc-source-overview" style="opacity:0" aria-hidden="true">
+  <text x="135" y="156" text-anchor="end" font-size="12" font-weight="650" fill="var(--fg)">Medicare FFS</text>
+  ${segment(21,67,138,'var(--navy)','Possible FFS months')}
+  <text x="135" y="219" text-anchor="end" font-size="12" font-weight="650" fill="var(--fg)">Commercial</text>
+  ${segment(5,43,201,'var(--c-com)','Possible commercial months')}
+  <text x="135" y="282" text-anchor="end" font-size="12" font-weight="650" fill="var(--fg)">Medicaid</text>
+  ${segment(4,33,264,'var(--c-med)','Eligible months')}${segment(46,68,264,'var(--c-med)','Reentry')}
+  </g>`;
+const row=(r,i)=>`<g class="sc-lane-layer" data-lane-index="${i}" style="opacity:0" aria-hidden="true"><text x="135" y="${r.y+18}" text-anchor="end" font-size="12" font-weight="650" fill="var(--fg)">${esc(r.name)}</text>${r.parts.map(p=>segment(...p.slice(0,2),r.y,p[2],p[3])).join('')}</g>`;
+const svg=`<svg id="sc-lane-master" viewBox="0 0 744 390" role="img" aria-label="A fixed-age-axis illustration of five possible insurance coverage pathways, revealed as the story advances" xmlns="http://www.w3.org/2000/svg">
+  <text x="148" y="32" font-size="11" font-weight="750" fill="var(--fg3)">AGE (YEARS)</text>
+  <text x="602" y="32" text-anchor="middle" font-size="11" font-weight="750" fill="var(--fg3)">Later-adulthood risk window</text>
+  <rect x="148" y="87" width="562" height="252" rx="9" fill="var(--surface2)"/>
+  <rect x="${x(50)}" y="87" width="${x(80)-x(50)}" height="252" rx="4" fill="#BA747B" opacity=".16"/>
+  <g aria-hidden="true">${grid}</g>
+  <g class="sc-risk-curve" style="opacity:1" aria-hidden="true"><path d="M169 309 C285 304 393 292 480 271 C585 239 660 183 695 131" fill="none" stroke="#CA6065" stroke-width="5.5" stroke-linecap="round"/><circle cx="695" cy="131" r="6.5" fill="#CA6065"/><text x="403" y="187" font-size="18" font-weight="750" text-anchor="middle" fill="var(--fg)">Increasing age-related risk</text><text x="403" y="209" font-size="11" text-anchor="middle" fill="var(--fg2)">Qualitative illustration only</text></g>
+  <g class="sc-source-legend" style="opacity:0" aria-hidden="true">${swatches}</g>
+  <g class="sc-lane-guides" style="opacity:0" aria-hidden="true">${pathRows.map(r=>`<rect x="148" y="${r.y}" width="562" height="27" rx="4" fill="none" stroke="var(--border)" stroke-dasharray="3 4"/>`).join('')}</g>
+  ${overview}
+  ${pathRows.map(row).join('')}
+  <text x="429" y="387" text-anchor="middle" font-size="10.5" fill="var(--fg3)">Examples, not observed enrollment trajectories or linked patient records</text>
+</svg>`;
+mount.innerHTML=svg;
+const risk=mount.querySelector('.sc-risk-curve');
+const legend=mount.querySelector('.sc-source-legend');
+const overviewGroup=mount.querySelector('.sc-source-overview');
+const guides=mount.querySelector('.sc-lane-guides');
+const lanes=[...mount.querySelectorAll('.sc-lane-layer')];
+// One compact static graphic per mobile narrative card. Hidden on desktop.
+steps.forEach((step,index)=>{
+ const mini=document.createElement('div');
+ mini.className='sc-mobile-snapshot';
+ mini.setAttribute('aria-label',`Coverage illustration after step ${index+1}`);
+ mini.innerHTML=svg.replace('id="sc-lane-master"','');
+ step.insertBefore(mini,step.querySelector('.sc-step-question'));
+ const group=mini.querySelector('svg');
+ const set=(s,on)=>{s.style.opacity=on?'1':'0';};
+ set(group.querySelector('.sc-risk-curve'),index===0);
+ set(group.querySelector('.sc-source-legend'),index>=1);
+ set(group.querySelector('.sc-source-overview'),index===1);
+ set(group.querySelector('.sc-lane-guides'),index>=1);
+ group.querySelectorAll('.sc-lane-layer').forEach((node,j)=>set(node,j<([0,0,1,2,3,5][index])));
+});
+let active=-1;
+const revealed=[0,0,1,2,3,5];
+function setActive(i){
+ i=Math.max(0,Math.min(steps.length-1,i));
+ if(i===active)return;
+ active=i;
+ steps.forEach((s,j)=>{s.classList.toggle('is-active',j===i);s.setAttribute('aria-current',j===i?'step':'false')});
+ title.textContent=scenes[i].name;
+ count.textContent=String(i+1).padStart(2,'0')+' / 06';
+ note.textContent=scenes[i].note;
+ risk.style.opacity=i===0?'1':'0';
+ risk.style.display=i===0?'':'none';
+ legend.style.opacity=i>=1?'1':'0';
+ overviewGroup.style.opacity=i===1?'1':'0';
+ overviewGroup.style.display=i===1?'':'none';
+ guides.style.opacity=i>=1?'1':'0';
+ lanes.forEach((lane,j)=>{const on=j<revealed[i];lane.style.opacity=on?'1':'0';lane.setAttribute('aria-hidden',on?'false':'true');});
+ prev.disabled=i===0;
+ next.disabled=i===steps.length-1;
+}
+// Advance only once the *top* of the next text card passes a fixed
+// reading line 36% down the viewport. Intersection ratios caused flicker.
+const activationLine=()=>Math.max(150,Math.min(window.innerHeight*.36,420));
+function scrollIndex(){
+ const y=activationLine();
+ let index=0;
+ for(let i=1;i<steps.length;i++){
+   if(steps[i].getBoundingClientRect().top<=y)index=i;
+   else break;
+ }
+ return index;
+}
+let queued=false;
+function syncScroll(){
+ if(queued)return;
+ queued=true;
+ requestAnimationFrame(()=>{queued=false;setActive(scrollIndex())});
+}
+function jump(i){
+ if(i<0||i>=steps.length)return;
+ // Instant positioning keeps the button and the scroll listener in sync.
+ const top=window.scrollY+steps[i].getBoundingClientRect().top-activationLine()+2;
+ window.scrollTo({top:Math.max(0,top),behavior:'instant'});
+ setActive(i);
+}
+prev.addEventListener('click',()=>jump(active-1));
+next.addEventListener('click',()=>jump(active+1));
+window.addEventListener('scroll',syncScroll,{passive:true});
+window.addEventListener('resize',syncScroll,{passive:true});
+setActive(0);syncScroll();
 })();
 </script><script>document.getElementById('thome-evidence-link')?.addEventListener('click',()=>{const b=document.querySelector('[data-filter="glp1"]'); b?.click();});</script></body></html>
